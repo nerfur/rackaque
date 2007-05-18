@@ -1,0 +1,88 @@
+##############################################################################
+# RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
+# Version 1.2.%BUILD%                                                        #
+# (C)2007 Will Green (wgreen at users.sourceforge.net)                       #
+# README for RackMonkey                                                      #
+##############################################################################
+
+Introduction
+------------
+Thank you for choosing to try RackMonkey v1.2, I hope you find it useful in
+bringing (and keeping) order in your data centres.
+
+Known Issues v1.2.%BUILD%
+-------------------------
+* Row management is disabled.
+* Application views are disabled.
+* Unracked devices view is disabled.
+* The help view isn't very helpful ;)
+* Numbering of racks from the top doesn't work. Please leave conf as:
+    RACKNUMBERINGTOP => 0;
+* When you use 'add' from an edit/create view all your other changes are lost.
+* When you use 'add' from an edit/create view only one depth of history is
+  remembered (so adding a building from a room from a rack doesn't remember
+  the rack view you came from).
+* Tick entities don't appear in IE 6 on Windows.
+* JavaScript for selecting and deselecting racks in default rack view doesn't 
+  work if there is only one item present.
+* Untested in IE7 (testing is due to begin shortly).
+* Allows rack to be resized even when the resize affects devices
+
+Security
+--------
+You should be aware that RackMonkey has not been fully security-hardened, so
+should not be deployed on unprotected public web sites.
+
+Database Support
+----------------
+RackMonkey supports SQLite or PostgreSQL (Postgres). SQLite is trivial to
+configure, but lacks some of the features of Postgres. Your choice of database
+will not affect the features available in RackMonkey, so it really comes down 
+to personal preference. If you're not sure I'd recommend choosing SQLite as
+there isn't any configuration to do.
+
+mod_perl
+--------
+A limited amount of testing has been done under mod_perl, but there may still
+be issues. Use with caution.
+
+Installation
+------------
+Please read the doc/install.txt file.
+
+User Documentation
+------------------
+Once installed you should read doc/userguide.txt for advice on getting started
+with RackMonkey.
+
+Developer Guide
+---------------
+If you'd like to extend RackMonkey or integrate it into other applications, 
+please read doc/devguide.txt.
+
+Licence
+-------
+This software is licensed under the GPL. See doc/licence.txt for details.
+
+Example Data
+------------
+RackMonkey includes example data to demonstrate the software and get you 
+started. The inclusion of a particular product does not imply an endorsement
+by the author.
+
+Acknowledgements 
+----------------
+I would like to thank the following for their assistance:
+
+	* Piers Kent
+	* Tim Sweetman
+	* Nicola Worthington
+
+Further Information
+-------------------
+Visit the RackMonkey web site:
+	http://www.rackmonkey.org
+
+Join the announce list:
+	http://lists.sourceforge.net/lists/listinfo/rackmonkey-announce
+
