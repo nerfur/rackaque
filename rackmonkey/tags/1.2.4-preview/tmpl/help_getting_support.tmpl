@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!-- 
+##############################################################################
+# RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
+# Version 1.2.%BUILD%                                                        #
+# (C)2004-2008 Will Green (wgreen at users.sourceforge.net)                  #
+# Help default template                                                      #
+##############################################################################
+-->
+<head>
+	<title>Getting Support | RackMonkey</title>
+	<style type="text/css" media="screen">
+	@import "<TMPL_VAR NAME=web_root>/styles/main.css";
+	@import "<TMPL_VAR NAME=web_root>/styles/tabs.css";
+	@import "<TMPL_VAR NAME=web_root>/styles/help.css";
+	</style>
+	<script type="text/javascript" src="<TMPL_VAR NAME=web_root>/javascript/racklib.js"></script>
+	<link rel="icon" href="<TMPL_VAR NAME=web_root>/graphics/favicon.ico" />
+</head>
+<body>
+	<TMPL_INCLUDE NAME="nav-help.ssi">
+	<div id="main">
+		<p>
+			<a href="<TMPL_VAR NAME=base_url>?view=help">Help Overview</a> |
+			<a href="<TMPL_VAR NAME=base_url>?view=help&amp;view_type=first_steps">First Steps</a> |
+			<strong>Getting Support</strong> |
+			<a href="http://www.rackmonkey.org/faq">Online FAQ</a> |
+			<a href="http://www.rackmonkey.org/doc/1.2.4">Online Docs</a>
+		</p>
+		<h2>Getting Support</h2>
+		<p>Be sure to read the <strong>Troubleshooting</strong> section of the install document (included in the RackMonkey download). The Troubleshooting document will be available as a web page in a forthcoming release.</p>
+		<p>
+		You can submit support requests via <a href="http://sourceforge.net/tracker/?func=add&amp;group_id=151623&amp;atid=781547">SourceForge</a>.
+		You should also join the RackMonkey
+		<a href="http://lists.sourceforge.net/lists/listinfo/rackmonkey-announce" title="Subscribe to the RackMonkey announce list on SourceForge">announce list</a>.
+		Further support options are being considered at present.
+		</p>
+		<p>
+		<em>This section is not yet complete, but will appear in the release version of RackMonkey v1.2.4.</em>
+		</p>
+	</div>
+	<TMPL_INCLUDE NAME="footer.ssi">
+</body>
+</html>
