@@ -1,0 +1,27 @@
+##############################################################################
+# RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
+# Version 1.2.%BUILD%                                                        #
+# (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
+# RackMonkey Configuration                                                   #
+##############################################################################
+
+# NB. Comments must either start a line or follow whitespace
+
+# Database Connection Settings
+dbconnect =
+dbuser =
+dbpass =
+
+# Path & URL Constants
+tmplpath =
+wwwpath =
+
+# Plugins - to enable/disable a plugin uncomment/comment the appropriate line
+#plugin_xls = rack2xls.pl
+#plugin_dns = rackdns.pl
+
+# Preference Constants
+defaultview = rack      # Default view loaded when none is specified
+dateformat = %Y-%m-%d   # Format used to display dates (not currently used)
+shorttextlen = 32       # Shorten text longer than this for table views
+shorturllen = 64        # Shorten URLs longer than this for display
