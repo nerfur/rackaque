@@ -8,6 +8,12 @@
 You can read the latest version of this document in HTML format at:
 http://www.rackmonkey.org/doc
 
+v1.2.5 Release Candidate 1 - Released 2009-05-30
+------------------------------------------------
+* Completed v1.2.5 documentation
+* Returned the Dell query URL to the default config
+* Added meta_default data to default device_app data
+
 v1.2.5 Preview 3 - Released 2009-05-23
 --------------------------------------
 * Full support for associating apps with devices

@@ -2,16 +2,11 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# RackMonkey v1.2.5 Preview 3 Install Guide                                  #
+# RackMonkey v1.2.5 Install Guide                                            #
 ##############################################################################
 
 You can read the latest version of this document in HTML format at:
 http://www.rackmonkey.org/doc/1.2.5
-
-WARNING: This is a preview release that has undergone limited testing. The
-author does not recommend using this release for production usage.
-The RackMonkey documentation is still being updated and you should expect to
-find omissions and inaccuracies in it.
 
 
 Contents
@@ -28,11 +23,9 @@ Contents
 
 1. Introduction  
 ===============
-This document explains how to install RackMonkey.
-
-In future RackMonkey will be available in package form for common operating
-systems and include more OS specific installation instructions. For this 
-release all installations should follow this document.
+This document explains how to install RackMonkey for a generic system. 
+Platform specific documents may be available for your operating system at 
+http://www.rackmonkey.org/doc/1.2.5.
 
 This document covers the installation of a new instance of RackMonkey. For
 upgrades you should follow doc/upgrade.txt.
@@ -44,21 +37,22 @@ shell prompt, you should not type them.
 2. System Set Up
 ================
 You need the following in order to install and use RackMonkey. NB. Some of 
-these requirements have been revised since both v1.2.4 and the last preview 
-release.
+these requirements have been revised since both v1.2.4.
 
-* Modern web browser
-For Windows/Unix users Firefox 3 currently provides the best results, for Mac 
-users we recommend Safari 3. For details see: http://www.rackmonkey.org/faq
+* Modern web browser. Any reasonably standards-compliant browser should work,
+  but the following browsers are officially supported:
+ - Firefox 2, 3
+ - Internet Explorer 6, 7, 8
+ - Safari 2, 3
 
-* Web server (Apache 2 recommended)
+* Web server. Apache 2 is recommended.
 
 * One of the following databases (your OS may include packages for these):
-  - SQLite v3.3.6 or higher
+  - SQLite 3.3.6 or higher
       SQLite3 can be obtained from http://www.sqlite.org
-  - PostgreSQL v7.4.19 or higher (8.0.3 or higher strongly recommended)
+  - PostgreSQL 7.4.19 or higher (8 or higher strongly recommended)
       Postgres can be obtained from http://www.postgresql.org
-  - MySQL v5.0.22 or higher
+  - MySQL 5.0.22 or higher
       MySQL can be obtained from http://dev.mysql.com/downloads/mysql/
 
   NB. SQLite is the simplest database to administer. If you aren't an
@@ -115,7 +109,7 @@ Copy the rackmonkey.pl file and the whole RackMonkey directory from the perl
 directory to a suitable location on your web server (e.g. /rackmonkey) and
 ensure that rackmonkey.pl is executable by the web server user.
 
-For example, to make rackmonkey.pl executable by all users run:
+For example to make rackmonkey.pl executable by all users run:
 
     $ chmod 755 rackmonkey.pl
     
@@ -211,7 +205,7 @@ CGI applications.
 Configuration is stored in a text file, which is read from 
 /etc/rackmonkey.conf by default. If you're happy with this location, simply 
 copy conf/rackmonkey.conf-default to /etc/rackmonkey.conf and proceed to the 
-configuration editing section (below).
+'Editing Configuration' section (below).
 
 NB. If you're using Postgres or MySQL, this configuration file may contain 
 your database username and password. For maximum security only root (or the 
@@ -325,31 +319,26 @@ You can also connect to a local database on another port:
 
 Rack Numbering Direction
 ------------------------
-If your racks are mostly numbered from the top, so unit 1 is highest in the 
-rack, you should set the value of 'number_from_top' to 1. Don't worry, you can 
-still override this on a rack-by-rack basis.
+By default RackMonkey numbers racks from the bottom (unit 1 is nearest the 
+floor). If your racks are mostly numbered from the top, you should set the 
+value of 'number_from_top' to 1. Don't worry, you can still override this on a 
+rack-by-rack basis.
 
 
 6. Database Set Up
 ==================
 Before you can run RackMonkey you need to set up the database. You must 
 import the the schema and default data files in the database before 
-RackMonkey will run. The sample data is optional, but useful, especially for 
-new users.
+RackMonkey will run. The sample data is optional, but strongly recommended as 
+it includes common companies, device roles and operating systems etc.
 
 For SQLite
 ----------
 Make a note of the path you specified for 'dbconnect' in section 5, then run 
-both of the following to set up the database and import the required default 
-data:
+following commands:
 
     $ sqlite3 [PATH] < sql/schema/schema.sqlite.sql
     $ sqlite3 [PATH] < sql/data/default_data.sql
-
-You should also install the optional sample data if you want common companies 
-and operating systems etc. set up in RackMonkey (this will save you a lot of 
-work entering data and you can always delete the ones you don't want):
-
     $ sqlite3 [PATH] < sql/data/sample_data.sql
     
 You should then change the permissions of the database file and its parent
@@ -386,11 +375,6 @@ default data (assumes your database and user are called rackmonkey):
 
     $ psql -U rackmonkey rackmonkey < sql/schema/schema.postgres.sql
     $ psql -U rackmonkey rackmonkey < sql/data/default_data.sql
-
-You should also install the optional sample data if you want common companies 
-and operating systems etc. set up in RackMonkey (this will save you a lot of 
-work entering data and you can always delete the ones you don't want):
-
     $ psql -U rackmonkey rackmonkey < sql/data/sample_data.sql
 
 For further information on administering Postgres see:
@@ -405,23 +389,14 @@ rackmonkey database and connect to it:
     mysql> create database rackmonkey;
     mysql> use rackmonkey;
 
-Next, import the RackMonkey schema and default data (required):
+Next, import the RackMonkey schema and data (you will need to adjust these 
+paths if you weren't in the rackmonkey directory when you started MySQL):
 
     mysql> \. sql/schema/schema.mysql.sql
     mysql> \. sql/data/default_data.sql
-
-Check all queries were OK in the output from the schema import. You can check 
-all 19 tables were imported:
-
-    mysql> show tables;
-    ...
-    19 rows in set (0.00 sec)
-    
-You should also install the optional sample data if you want common companies 
-and operating systems etc. set up in RackMonkey (this will save you a lot of 
-work entering data and you can always delete the ones you don't want):
-
     mysql> \. sql/data/sample_data.sql
+
+Check all queries were OK in the output.
 
 Finally you need to create a user and password to match your configuration 
 file (in section 4, above). For local connections:
@@ -457,9 +432,9 @@ Excel Spreadsheet Export: rack2xls.pl
 -------------------------------------
 The current Excel spreadsheet export plugin can produce an Excel 97-2004 
 format spreadsheet that is readable by many applications including Microsoft 
-Excel for Windows and Mac, Open Office and iWork. At present the plugin can 
-only export a table of all devices, but further functionality will appear in 
-future releases.
+Excel for Windows and Mac, OpenOffice Calc and iWork NUmbers. At present the 
+plugin can only export a table of all devices, but further functionality will 
+appear in future releases.
 
 To use this plugin you need to install the Spreadsheet::WriteExcel Perl 
 module. If you're not sure how to do this see section 2 of this document.
@@ -481,6 +456,6 @@ sure how to do this see section 2 of this document.
 To enable the plugin, copy rackdns.pl into the same directory as 
 rackmonkey.pl, make sure it's executable (chmod 755 usually does the trick)
 then uncomment the plugin_dns line in the RackMonkey configuration. You should 
-then find a 'Query DNS...' link next to the device name in device detail view. 
-To see the detail view simply click on the name of a device in the rack or 
-device table views.
+then find a 'Query DNS...' link next to the device name in single device  
+view. To see the single device view simply click on the name of a device in 
+the rack or device table views.

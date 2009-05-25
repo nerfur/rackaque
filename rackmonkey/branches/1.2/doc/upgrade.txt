@@ -8,10 +8,6 @@
 You can read the latest version of this document in HTML format at:
 http://www.rackmonkey.org/doc/1.2.5
 
-WARNING: This is a preview release that has undergone limited testing. The
-author does not recommend using this release for production usage.
-The RackMonkey documentation is still being updated and you should expect to
-find omissions and inaccuracies in it.
 
 Contents
 ========
