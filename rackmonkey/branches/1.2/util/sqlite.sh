@@ -1,4 +1,4 @@
-DB_FILE=/Users/flux/Sites/data/rackmonkey.db
+DB_FILE=/Users/flux/Sites/data/rackmonkey1_2.db
 rm $DB_FILE
 sqlite3 $DB_FILE < sql/schema/schema.sqlite.sql 
 sqlite3 $DB_FILE < sql/data/default_data.sql 
