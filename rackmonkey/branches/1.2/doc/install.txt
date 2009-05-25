@@ -49,7 +49,7 @@ these requirements have been revised since both v1.2.4.
 
 * One of the following databases (your OS may include packages for these):
   - SQLite 3.3.6 or higher
-      SQLite3 can be obtained from http://www.sqlite.org
+      SQLite can be obtained from http://www.sqlite.org
   - PostgreSQL 7.4.19 or higher (8 or higher strongly recommended)
       Postgres can be obtained from http://www.postgresql.org
   - MySQL 5.0.22 or higher
@@ -420,7 +420,7 @@ http://dev.mysql.com/doc/
 You can now start the app by pointing your browser at the location of the
 rackmonkey.pl script. You should be presented with a screen showing a list of 
 racks. If everything works correctly you probably want to start reading the 
-User Guide, which you can find under the [Help] tab in the RackMonkey 
+User Guide, which you can find under the 'Help' tab in the RackMonkey 
 interface. If you're having trouble getting RackMonkey to run (for example you
 get an Internal Server Error) read doc/troubleshooting.txt.
 

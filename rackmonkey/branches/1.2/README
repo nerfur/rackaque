@@ -32,9 +32,6 @@ scribbled notes when you need to find a server: RackMonkey can quickly find
 any device and draw a rack diagram of its location. RackMonkey is free and 
 open source (licensed under GPL).
 
-This is a preview release of v1.2.5. For production usage you should use the
-latest stable release from: http://www.rackmonkey.org
-
 
 2. New in this Release
 ======================
@@ -45,7 +42,7 @@ v1.2.5 has a number of improvements over v1.2.4. These include:
 * Print CSS for much better quality printouts
 * Official MySQL support
 * Numbering racks from the top as well as bottom
-* Basic support for associating apps with devices
+* Support for associating apps with devices
 * Basic formatting of notes fields
 * Operating system licences
 * Device deletion in table and physical rack views
@@ -72,7 +69,7 @@ For upgrades from prior releases refer to: doc/upgrade.txt
 You can find RackMonkey documentation:
 
 * In the doc directory included in the RackMonkey distribution
-* Within the application itself by selecting the help tab
+* Within the application itself by selecting the 'Help' tab
 * Online at http://www.rackmonkey.org/doc
 * Perl pod is included in the perl modules. This can be viewed with perldoc.
 
