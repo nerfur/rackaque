@@ -2,16 +2,11 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# README for RackMonkey v1.2.5 Preview 3                                     #
+# README for RackMonkey v1.2.5                                               #
 ##############################################################################
 
 You can read the latest version of this document in HTML format at:
 http://www.rackmonkey.org/doc/1.2.5
-
-WARNING: This is a preview of v1.2.5 and has undergone limited testing. The
-author does not recommend using this release for production systems.
-The RackMonkey documentation is still being updated and you should expect to
-find omissions and inaccuracies in it.
 
 
 Contents
@@ -58,8 +53,6 @@ v1.2.5 has a number of improvements over v1.2.4. These include:
 
 For a more detailed list of changes in this and prior releases
 see doc/changes.txt.
-
-Final v1.2.5 features are subject to change.
 
 
 3. Obtaining RackMonkey

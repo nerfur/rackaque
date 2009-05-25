@@ -2,42 +2,79 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# RackMonkey Developer Guide                                                 #
+# RackMonkey v1.2 Developer Guide                                            #
 ##############################################################################
 
 You can read the latest version of this document in HTML format at:
 http://www.rackmonkey.org/doc/1.2.5
 
-This document is out-of-date. Please await an updated version which will be
-included in the final release of RackMonkey v1.2.5.
+
+Contents
+--------
+To be added
+
 
 Developer Guide to RackMonkey v1.2
 ==================================
 This document is at an early stage, but I hope it will help you extend and 
 customise RackMonkey.
 
-Contents
---------
-To be added.
+
+
+Integrating with Other Systems
+==============================
+
+Linking to RackMonkey
+---------------------
+By using the RackMonkey search URL you can link from another application to
+a RackMonkey device. For example, you might have a monitoring system or wiki 
+with an entry for each device. 
+
+To determine the search URL to use for your RackMonkey install, search for the 
+string NAME using the search feature at the top right of the RackMonkey 
+window. You should end up with something ending:
+
+ /rackmonkey.pl?view=device&view_type=default_search&device_search=NAME
+
+In the other application simple add the complete URL, substituting NAME for 
+the name of the device you wish to link to. Now, when you follow the link from 
+the other application you will be presented with a list of matching RackMonkey 
+devices that you can quickly choose from. The follow section shows an example of this using a MediaWiki template.
+
+Linking from MediaWiki
+----------------------
+
+Linking from RackMonkey
+-----------------------
 
 
 Creating Custom Views
----------------------
+=====================
 You can create a custom view in RackMonkey without writing any code. To create
 your new view you need to choose a type of object (device, rack, service) and 
 a view type to base your template on. 
 
-The views available are:
-<need_to_fill_in>
+The normal views available are:
+* app
+* building
+* device
+* domain
+* hardware
+* org
+* os
+* rack
+* report
+* role
+* room
+* service
 
 The view types available are:
 
-* default:	A list view of this sort of object
+* default:	A list view of this sort of object in table format
 * create:	A view for creating a new object
 * edit:		A view for editing an object
 * single:	A view of a single object
 * physical:	A specialised view used only with rack objects
-* manage:	A view only used with rows & apps
 
 The view type you choose determines what sort of data is sent to the template.
 
@@ -97,61 +134,13 @@ A reference to the template variables available is included in Appendix B at
 the end of this guide.
 
 
-Running Unit Test
------------------
-RackMonkey includes a growing list of unit tests.
-
-To run RackMonkey unit tests create a test database with the schema but no
-data in it. Update t/*.t to point at the test database (a configuration file
-for test databases will be added in due course). Run the tests from the
-directory containing the t directory (usually trunk). e.g.
-
-		$ t/building.t 
-		1..34
-		ok 1 - calling getBuildingCount
-		ok 2 - no building records stored at the start of the test
-		<snip>
-
-If you want to run the tests from another directory you'll need to edit the 
-use lib path in the scripts. A more flexible mechanism for including the 
-correct path in @INC will be added soon.
+Storing Custom Data
+===================
+RackMonkey v1.2.5
 
 
-Porting RackMonkey to Another Database
---------------------------------------
-If SQLite, Postgres nor MySQL is appropriate for you, you may consider porting
-RackMonkey::Engine to another database. Before you do this, I would strongly
-advise you try using the supported databases first, as porting RackMonkey to a
-new database isn't for the faint-hearted.
 
-Key database features used by RackMonkey (with example):
 
- * Transactions
-   Updating the OS of twenty servers only succeeds if they all update.
- * Foreign key constraints
-   Deleting a rack which contains any devices will fail.
- * Readable views (views are never updated directly)
-   CREATE VIEW customer AS SELECT * FROM org WHERE customer = 1;
-   
-If the database you are porting to doesn't have these features you may be able
-to emulate them: for example Foreign key constraints are emulated with 
-triggers when RackMonkey is used with SQLite. Not supporting these features 
-will require you change the RackMonkey code, which will lead to maintenance 
-problems: what do you do when an update to RackMonkey is released, or you need 
-to move to another database?
-
-A good port should:
-
- * Support transactions, foreign key constraints and readable views
- * Not execute different SQL on different databases (excluding the initial
-   schema, which will be database specific).
- * Pass all unit tests
- 
-In order to allow a new database driver to be used you will need to edit the
-checkSupportedDriver sub in rackmonkey.pl.
-
-If you believe specific SQL in RackMonkey would benefit from changes to make 
-it more portable, please get in touch with the developers.
 
 
 Stylistic Conventions in RackMonkey Code/DB
