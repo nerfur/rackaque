@@ -1,6 +1,6 @@
-dropdb rackmonkey
-createdb -O rackmonkey rackmonkey
-psql -U rackmonkey rackmonkey < sql/schema/schema.postgres.sql 
-psql -U rackmonkey rackmonkey < sql/data/default_data.sql 
-psql -U rackmonkey rackmonkey < sql/data/sample_data.sql 
-psql -U rackmonkey rackmonkey < sql/data/test_data.sql
+dropdb rackmonkey1_2
+createdb -O rackmonkey rackmonkey1_2
+psql -U rackmonkey rackmonkey1_2 < sql/schema/schema.postgres.sql 
+psql -U rackmonkey rackmonkey1_2 < sql/data/default_data.sql 
+psql -U rackmonkey rackmonkey1_2 < sql/data/sample_data.sql 
+psql -U rackmonkey rackmonkey1_2 < sql/data/test_data.sql
