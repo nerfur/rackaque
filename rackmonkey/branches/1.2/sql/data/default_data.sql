@@ -57,9 +57,9 @@ INSERT INTO role (name, descript, notes, meta_default_data, meta_update_time, me
 INSERT INTO role (name, descript, notes, meta_default_data, meta_update_time, meta_update_user) VALUES('none', 'Role not currently assigned.', '', 1, '1970-01-01 00:00:00', 'install');
 
 -- default application relationships
-INSERT INTO app_relation (name) VALUES ('is run on');
-INSERT INTO app_relation (name) VALUES ('is developed on');
-INSERT INTO app_relation (name) VALUES ('is tested on');
-INSERT INTO app_relation (name) VALUES ('is staged on');
-INSERT INTO app_relation (name) VALUES ('is on standby on');
-INSERT INTO app_relation (name) VALUES ('uses');
+INSERT INTO app_relation (name, meta_default_data, meta_update_time, meta_update_user) VALUES ('is run on', 0, '1970-01-01 00:00:00', 'install');
+INSERT INTO app_relation (name, meta_default_data, meta_update_time, meta_update_user) VALUES ('is developed on', 0, '1970-01-01 00:00:00', 'install');
+INSERT INTO app_relation (name, meta_default_data, meta_update_time, meta_update_user) VALUES ('is tested on', 0, '1970-01-01 00:00:00', 'install');
+INSERT INTO app_relation (name, meta_default_data, meta_update_time, meta_update_user) VALUES ('is staged on', 0, '1970-01-01 00:00:00', 'install');
+INSERT INTO app_relation (name, meta_default_data, meta_update_time, meta_update_user) VALUES ('is on standby on', 0, '1970-01-01 00:00:00', 'install');
+INSERT INTO app_relation (name, meta_default_data, meta_update_time, meta_update_user) VALUES ('uses', 0, '1970-01-01 00:00:00', 'install');
