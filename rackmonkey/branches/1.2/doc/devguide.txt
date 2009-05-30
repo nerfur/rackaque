@@ -10,15 +10,15 @@ http://www.rackmonkey.org/doc/1.2.5
 
 
 Contents
---------
+========
 To be added
 
 
-Developer Guide to RackMonkey v1.2
-==================================
-This document is at an early stage, but I hope it will help you extend and 
-customise RackMonkey.
-
+Introduction
+============
+This document is quite basic, but we hope it will help you extend and 
+customise RackMonkey. More comprehensive information will be included in
+future releases.
 
 
 Integrating with Other Systems
@@ -134,20 +134,20 @@ A reference to the template variables available is included in Appendix B at
 the end of this guide.
 
 
-Storing Custom Data
-===================
-RackMonkey v1.2.5
+Storing Custom Information
+==========================
+RackMonkey v1.2.5 includes a custom_info field in the device table. At present
+there isn't an official API to update this, but normal SQL of the following 
+form can be used:
 
-
-
-
+    UPDATE device SET custom_info='ipsum lorem...' WHERE id=xxx;
 
 
 Stylistic Conventions in RackMonkey Code/DB
 -------------------------------------------
 * Brace style is BSD/Allman
 * Table names are in the singular: room not rooms
-* All non-junction tables have a primary key called id
+* All tables have a primary key called id
 * Code indentation is 4 column and uses spaces
 
 
