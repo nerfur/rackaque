@@ -83,7 +83,7 @@
 		<h4>Working with Individual Devices</h4>
 		<p>
 			To view the full details for an individual device, select its name. This brings up a separate screen which also allows you to edit, copy or delete
-			the device. You can also edit a device directly be selecting the pencil icon next to its name or delete it by clicking on the 
+			the device. You can also edit a device directly by selecting the pencil icon next to its name or delete it by clicking on the 
 			minus icon <strong>(F)</strong>. To view a device within its rack, select the link in the rack column <strong>(E)</strong>. 
 			You can add a new device by clicking on the plus icon <strong>(D)</strong>. If you're adding many items to the same rack 
 			you may find it easier to do this Racks Physical View (discussed below). If a device name has a pink background then it's marked as not in service.
@@ -103,14 +103,33 @@
 		  for the hostname <strong>(B)</strong>. To view the device highlighted in its rack, click on <em>View in rack&hellip;</em> link <strong>(C)</strong>
 		  (the physical rack view is covered in detail below).
 		</p>		
+		<p>
+		  Along with the role of the device <strong>(D)</strong> is an indicator of whether it is in service, for example a server might be racked, but
+		  not yet be running any applications. The serial <strong>(E)</strong> and asset number fields are searched when using the find feature at the top
+		  right of each RackMonkey view (see above). If the serial number is from a manufacturer with online warranty information RackMonkey will provide
+		  a link to query that information. In RackMonkey 1.2.5 this is only supported for Dell, but support for other manufacturers will be added in
+		  later releases.
+		</p>
+		<p>
+		  Not shown in this example is the App section. If a device is associated with Apps then they will appear above the notes section. Details on
+		  the App view are included below.
+		  The footer at the bottom of the form allows the deletion <strong>(F)</strong> and editing <strong>(G)</strong> of the entry, as well as showing
+		  who last updated it and when. Any attempt to delete an entry will require confirmation.
+		</p>
 		<h3 class="print_break">Racks</h3>
 		<h4>Racks Table</h4>
 		<p>
-			The <strong>Racks</strong> view (screenshot below) gives you an overview of your racks: which room they reside in and the number of devices they contain. To view the details of a particular rack select its name <strong>(B)</strong>. To view the layout of devices within a rack select the relevant entry in the layout column <strong>(D)</strong> (See Racks Physical View, below, for details). If you want to see multiple racks side-by-side, select the check boxes next to the racks you wish to view <strong>(F)</strong> (selecting the check mark in the top column toggles the selected racks) and click the <em>Device Layout</em> button <strong>(G)</strong>. You can sort the racks table by clicking on the headings at the top of the table. For example selecting <em>Free U</em> will sort the racks from least to most free space.
+			The <strong>Racks</strong> view (screenshot below) gives you an overview of your racks: which room they reside in and the number of devices they
+			contain. To view the details of a particular rack select its name <strong>(B)</strong>. To view the layout of devices within a rack select the
+			relevant entry in the layout column <strong>(C)</strong> (See Racks Physical View, below, for details). If you want to see multiple racks
+			side-by-side, select the check boxes next to the racks you wish to view <strong>(D)</strong> (selecting the check mark in the top column toggles
+			the selected racks) and click the <em>Device Layout</em> button <strong>(E)</strong>. You can sort the racks table by clicking on the headings at
+			the top of the table. For example selecting <em>Free U</em> will sort the racks from least to most free space.
 		</p>
 		<p>
-			You can see the number of devices within a rack in the <em>Layout</em> column <strong>(D)</strong>. The total and used space in rack units are shown
-			in the <em>Size (U)</em> and <em>Free (U)</em> columns <strong>(E)</strong>. To create a new rack use the button <strong>(A)</strong>, to edit a rack select the <em>Edit</em> button next to its name <strong>(C)</strong>.
+			You can see the number of devices within a rack in the <em>Layout</em> column <strong>(C)</strong>. The total and used space in rack units are shown
+			in the <em>Size (U)</em> and <em>Free (U)</em> columns. To create a new rack use the plus icon <strong>(A)</strong>, to edit a rack click the pencil
+			icon next to its name, to delete it click on the minus icon <strong>(B)</strong>.
 		</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/racks.png" width="548" height="229" alt="" class="screenshot" />
 		<h4 class="print_break">Racks Physical View</h4>
