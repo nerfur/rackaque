@@ -37,12 +37,21 @@
 		</p>
 		<h2>RackMonkey User Guide</h2>
 		<p>
-			This guide will help you get started with RackMonkey and demonstrate some of its key features.
-			This page includes screenshots: letters in brackets, such as <strong>(E)</strong>, are used to refer to different screenshot areas from within the text.
-			This document is updated from time to time: you can always read the latest version at <a href="http://www.rackmonkey.org/doc/1.2.5">rackmonkey.org</a>. 
+			This guide will help you get started with RackMonkey and demonstrate some of its key features. This page includes screenshots: letters in brackets,
+			such as <strong>(E)</strong>, are used to refer to different screenshot areas from within the text. This document is updated from time to time: you
+			can always read the latest version at <a href="http://www.rackmonkey.org/doc/1.2.5">rackmonkey.org</a>. 
 		</p>
+		<h3 class="no_print" style="margin-bottom: -4px">Contents</h3>
+		<ol class="no_print">
+		  <li><a href="#interface_basics">Interface Basics</a></li>
+		  <li><a href="#config">Config</a></li>
+		  <li><a href="#working_with_devices">Working with Devices</a></li>
+		  <li><a href="#working_with_racks">Working with Racks</a></li>
+		  <li><a href="#working_with_apps">Working with Apps</a></li>
+		  <li><a href="#reports">Reports</a></li>
+		</ol>
 		<p><strong>Tip:</strong> Hovering your mouse over many items interface items (such as buttons) provides additional information.</p>
-		<h3>Interface Basics</h3>
+		<h3><a id="interface_basics">1. Interface Basics</a></h3>
 		<h4>Navigation</h4>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/navbar.png" width="748" height="44" alt="" class="screenshot" />
 		<p>The top of every RackMonkey screen looks similar to the screenshot above. There is a set of tabs <strong>(A)</strong> that provide access to the key parts of the application, a dropdown to jump to a physical view of a rack <strong>(B)</strong> and a search box <strong>(C)</strong> which allows you to find devices  by name, serial or asset number. The search is not case-sensitive and will also find partial matches. For example, searching for 'www' will find devices called 'WWW', 'www21' and 'www22'.</p>
@@ -58,15 +67,17 @@
 		<h4>Printing</h4>
 		<p>
 		  RackMonkey v1.2.5 includes dedicated print CSS to produce high-quality print outs. Print as normal in your browser and the optimised 
-		  CSS should be chosen automatically. For example, you might use this to take a rack diagram into the data centre.
+		  CSS should be chosen automatically. For example, you might use this to take a rack diagram into the data centre. Even the help pages
+		  are optimised for printing (tested with A4 and US Letter paper).
 		</p>
-		<h3>Config</h3>		
+		<h3><a id="config">2. Config</a></h3>		
 		<p>
 			The <strong>Config</strong> tab contains most of the basic building blocks of RackMonkey data. Here you can configure <strong>Buildings</strong>, <strong>Rooms</strong>, <strong>Domains</strong>, <strong>Hardware</strong> models, <strong>Operating Systems</strong>, <strong>Organisations</strong> (such as customers and manufacturers), <strong>Roles</strong> and <strong>Service Levels</strong>. It's a good idea to add your own commonly used items to these categories when you start using RackMonkey. If the sample data was installed with RackMonkey you will have a selection of operating systems and hardware to get you started (see the install documentation for information on sample data).
 		</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/config.png" width="502" height="229" alt="" class="screenshot" />
 		<p>The link at the bottom of config view <em>View RackMonkey System &amp; Database Information</em> can be used to get information on the software you're using. If you're reporting a bug please include this information.</p>
-		<h3 class="print_break">Working with Devices</h3>
+		
+		<h3 class="print_break"><a id="working_with_devices">3. Working with Devices</a></h3>
 		<h4>Deciding How to View Devices</h4>
 		<p>
 			The <strong>Devices</strong> tab (screenshot below) allows you to see all the devices and their configuration. There are several devices views which present different information; you can select an alternate view from the <em>View Type</em> dropdown <strong>(A)</strong>. For example, if you are interested in asset information (such as serial number and age of device), choose the <em>Asset</em> view. To sort the table by a particular column click on its name; for example you could sort devices by <em>Customer</em> rather than the default name (chosen by clicking on the <em>Device</em> column). You can show/hide domain information for devices by clicking the <em>.dom</em> link <strong>(D)</strong>.
@@ -93,7 +104,7 @@
 		  page was generated. This helps you ensure you're looking at current information and is also included in print outs.
 		</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/devices.png" width="849" height="542" alt="" class="screenshot" />		  
-		<p>
+		<p class="print_break">
 		  When you click on a device name you are taken to the single device view (screenshot, below). 
 		</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/device-single.png" width="600" height="438" alt="" class="screenshot" />		  
@@ -116,7 +127,7 @@
 		  The footer at the bottom of the form allows the deletion <strong>(F)</strong> and editing <strong>(G)</strong> of the entry, as well as showing
 		  who last updated it and when. Any attempt to delete an entry will require confirmation.
 		</p>
-		<h3 class="print_break">Racks</h3>
+		<h3 class="print_break"><a id="working_with_racks">4. Working with Racks</a></h3>
 		<h4>Racks Table</h4>
 		<p>
 			The <strong>Racks</strong> view (screenshot below) gives you an overview of your racks: which room they reside in and the number of devices they
@@ -132,14 +143,19 @@
 			icon next to its name, to delete it click on the minus icon <strong>(B)</strong>.
 		</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/racks.png" width="548" height="229" alt="" class="screenshot" />
-		<h4 class="print_break">Racks Physical View</h4>
+		<h4>Racks Physical View</h4>
 		<p>
-			In the <strong>Physical Rack</strong> View (screenshot below) you can see the contents of your racks. You can jump to physical view at any time using the dropdown <strong>(C)</strong>. This view shows the name and hardware type of the device of each device <strong>(A)</strong> (you can hover over the hardware name to see the manufacturer) together with an <em>[Ed]</em> link which allows you to edit the device.
-			You can add a new device to a rack at a given position by clicking on the <strong>+</strong> symbol <strong>(B)</strong>. This is a fast way to populate a new rack with devices.
+			In the <strong>Physical Rack</strong> View (screenshot below) you can see the contents of your racks. You can jump to physical view at any time
+			using the dropdown <strong>(C)</strong>. This view shows the name and hardware type of the device of each device <strong>(A)</strong> (you can hover
+			over the hardware name to see the manufacturer) together with an <em>[Ed]</em> link which allows you to edit the device.
+			You can add a new device to a rack at a given position by clicking on the <strong>+</strong> symbol <strong>(B)</strong>. This is a fast way to
+			populate a new rack with devices.
 		</p>
 		<p>In order to view more than one rack side-by-side you need to select them in the Racks Table (see above).</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/racks-physical.png" width="505" height="370" alt="" class="screenshot" />
-		<h3>Reports</h3>
+		<h3 class="print_break"><a id="working_with_apps">5. Working with Apps</a></h3>
+		<p>Lorem ipsum...</p>
+		<h3><a id="reports">6. Reports</a></h3>
 		<p>
 			The <strong>Reports</strong> tab gives you information on all your devices and racks. For example, you can see the total space available in your racks
 			as well as the customers with the most devices, most common operating systems etc. The reports view will be expanded upon in future releases.
