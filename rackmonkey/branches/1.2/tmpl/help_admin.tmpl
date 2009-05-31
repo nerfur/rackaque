@@ -33,12 +33,35 @@
 			<a href="<TMPL_VAR NAME=base_url>?view=help&amp;view_type=legal">Legal</a>
 		</p>
 		<h2>RackMonkey Admin Guide</h2>
-		<p><strong>NB. This guide hasn't been updated for release v1.2.5.</strong></p>
 		<p>
 			For basic installation and configuration information see the install guide included with the RackMonkey download or
-			view the <a href="http://www.rackmonkey.org/doc/1.2.5">online docs</a>. This document will be expanded in future
-			releases.
+			view the <a href="http://www.rackmonkey.org/doc/1.2.5">online docs</a>.
 		</p>
+		<h3>Configuration Options</h3>
+		<p>
+		The RackMonkey configuration file (by default stored in /etc/rackmonkey.conf on the server) allows you to adjust the
+		behaviour of RackMonkey. At present these values can't be set on a per-user basis, they apply to all users.
+		</p>
+		<h4>Rack Numbering Direction</h4>
+		<p>
+		  RackMonkey allows you to number racks from the top (highest position in the rack) or bottom. By default racks are numbered
+		  from the bottom. If your racks are normally numbered from the top, change the value of <em>number_from_top</em> to 1 in the
+		  config file:
+		</p>
+		<pre>number_from_top = 1</pre>
+		<h4>Size of 1U in Physical Rack View</h4>
+		<p>
+		  The physical rack view uses HTML tables to draw a rack. By default a 1U table cell occupies 14px. If you want to make this larger or smaller
+		  you can change the value of <em>size_of_u</em> to you preferred size in pixels. As the table contains graphics (for example the plus buttons)
+		  there is a limit to how thin 1U will actually appear. To make 1U 20 pixels high set the following:
+		</p> 
+		<pre>size_of_u = 20</pre>
+		<p>
+		  This can also be used to solve issues where racks shown side-by-side
+		  don't line up properly: this occurs because the graphics used in the interface may make rows larger than this minimum.
+		  If your racks don't line up, try increasing this value by 1px and reloading the page. Repeat until your racks line up.
+		</p>
+		
 		<h3>Restricting Access and Recording Who Made Changes</h3>
 		<h4>Password Protecting RackMonkey</h4>
 		<p>
