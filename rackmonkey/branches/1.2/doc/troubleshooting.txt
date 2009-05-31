@@ -22,6 +22,8 @@ Contents
 ===============
 This document deals with system issues which prevent RackMonkey running or
 using its database. For further support information see the README file.
+Information on error messages is also available under the Help tab in the
+RackMonkey interface.
 
 
 2. Internal Server Error
@@ -116,6 +118,13 @@ your database than your DBD::SQLite perl module is compiled against. The best
 way to solve this problem is to update your copy of DBD::SQLite. Alternatively 
 you can recreate your database with PRAGMA legacy_file_format=ON, see 
 http://www.sqlite.org/pragma.html.
+
+
+DBD::mysql::st execute failed: No database selected
+---------------------------------------------------
+This error occurs when you make an error in the 'dbconnect' setting in
+rackmonkey.conf. Make sure you have typed all the names and values correctly. 
+Check the installation instructions for details of the correct format.
  
 
 5. Missing Graphics and Stylesheet
