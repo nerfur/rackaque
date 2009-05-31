@@ -1,0 +1,155 @@
+##############################################################################
+# RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
+# Version 1.2.%BUILD%                                                        #
+# (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
+# RackMonkey v1.2.5 Draft Ubuntu Quick Install Guide                         #
+##############################################################################
+
+Warning: This procedure has yet to be fully tested. We recommend you continue 
+to use the generic installation instructions doc/install.txt.
+
+Contents
+========
+1. Introduction  
+2. System Set Up
+3. Installing RackMonkey
+4. Configuring the Web Server
+5. Configuring RackMonkey
+6. Database Set Up
+7. Running RackMonkey
+8. RackMonkey Plugins: Excel and DNS
+
+
+1. Introduction  
+===============
+This document explains how to install RackMonkey for Ubuntu 8.04 or higher. 
+These instructions have undergone basic testing with Ubuntu Server 8.04 LTS 
+and Ubuntu Desktop 8.10 and are expected to work with 9.04. These instructions
+use SQLite for the database engine, if you wish to use a different database,
+please consult the generic installation instructions: doc/install.txt. 
+
+This document covers the installation of a new instance of RackMonkey. For
+upgrades you should follow doc/upgrade.txt.
+
+Please note that the $ and # shown at the start of commands represent the 
+shell prompt, you should not type them.
+
+2. System Set Up
+================
+Ubuntu includes packages for all the software you need to run RackMonkey. If 
+you're connecting to your RackMonkey instance from another machine then you 
+should make sure your web browser is compatible. Any reasonably 
+standards-compliant browser should work, but the following browsers are 
+officially supported:
+
+ - Firefox 2, 3
+ - Internet Explorer 6, 7, 8
+ - Safari 2, 3
+ 
+ 
+Installing Required Packages
+----------------------------
+Ubuntu's package system makes it easy to install all the required components. 
+Run the following commands from a terminal and say yes to the installation of 
+any dependancies:
+
+    $ sudo apt-get install apache2
+    $ sudo apt-get install sqlite3
+    $ sudo apt-get install perl
+    $ sudo apt-get install libclass-dbi-perl
+    $ sudo apt-get install libdbd-sqlite3
+    $ sudo apt-get install libcgi-pm-perl
+    $ sudo apt-get install libhtml-template-perl
+    $ sudo apt-get install libhtml-parser-perl
+
+If you want to be able to browse the RackMonkey interface from a web browser 
+on the Ubuntu machine (if you're connecting from a remote machine you don't 
+need to do this) run:
+
+    $ sudo apt-get install firefox
+
+
+3. Installing RackMonkey
+========================
+Once you have obtained a copy of RackMonkey (see README) you should have a
+directory with the following layout:
+
+  conf        Includes RackMonkey and Apache configuration files
+  doc         Documentation for RackMonkey
+  README      Read this before you start
+  perl        Contains the perl scripts and modules
+  sql         SQL to create the RackMonkey database
+  t           Test scripts
+  tmpl        HTML::Template files for the web interface
+  www         Web space files, e.g. help, images, CSS files
+
+Make a directory for rackmonkey in web space:
+
+    $ sudo mkdir /var/www/rackmonkey
+
+Copy the rackmonkey.pl file and the whole RackMonkey directory from the perl
+directory to your new rackmonkey directory and make it executable:
+
+    $ sudo cp rackmonkey-1.2.5/perl/rackmonkey.pl /var/www/rackmonkey
+    $ sudo cp -r rackmonkey-1.2.5/perl/RackMonkey /var/www/rackmonkey
+    $ sudo chmod 755 /var/www/rackmonkey/rackmonkey.pl
+
+Copy the RackMonkey web content into the web directory:
+
+    $ sudo cp -r rackmonkey-1.2.5/www/* /var/www/rackmonkey
+
+Make a directory for template and data content:
+
+    $ sudo mkdir /var/lib/rackmonkey
+    $ chown www-data:www-data /var/lib/rackmonkey
+
+Copy the templates into the directory:
+
+    $ sudo cp -r rackmonkey-1.2.5/tmpl /var/www/rackmonkey
+    
+
+4. Configuring the Web Server
+=============================
+Copy the apache configuration into place and restart the web server:
+
+    $ sudo cp rackmonkey-1.2.5/conf/httpd-rackmonkey.conf  /etc/apache2/conf.d 
+    $ sudo /etc/init.d/apache2 force-reload
+
+
+5. Configuring RackMonkey
+=========================
+Copy the default configuration file into /etc:
+
+    $ sudo cp rackmonkey-1.2.5/conf/rackmonkey.conf-default  /etc/rackmonkey.conf
+
+Amend /etc/rackmonkey.conf as follows:
+
+    dbconnect = dbi:SQLite:dbname=/var/lib/rackmonkey/rackmonkey.db
+    tmplpath = /var/lib/rackmonkey/tmpl
+    wwwpath = /rackmonkey
+    
+
+6. Database Set Up
+==================
+Set up the schema and data:
+
+    $ sudo sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/schema/schema.sqlite.sql
+    $ sudo sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/default_data.sql
+    $ sudo sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/sample_data.sql
+
+Change the owner of the database to be that of the web server:
+
+    $ sudo chown www-data:www-data /var/lib/rackmonkey/rackmonkey.db
+
+
+7. Running RackMonkey
+=====================
+Point your web browser at http://<hostname>/rackmonkey/rackmonkey.pl and you 
+should be greeted by the RackMonkey interface. If you get an error, check out  
+doc/troubleshooting.txt. If all is well, read the user guide under the 'Help' 
+tab within the RackMonkey interface.
+
+
+8. RackMonkey Plugins: Excel and DNS
+====================================
+No Ubuntu-specific instructions yet written.
