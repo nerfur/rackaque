@@ -101,7 +101,7 @@ Copy the RackMonkey web content into the web directory:
 Make a directory for template and data content:
 
     $ sudo mkdir /var/lib/rackmonkey
-    $ chown www-data:www-data /var/lib/rackmonkey
+    $ sudo chown www-data:www-data /var/lib/rackmonkey
 
 Copy the templates into the directory:
 
