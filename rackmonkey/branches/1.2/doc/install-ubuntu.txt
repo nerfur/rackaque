@@ -56,9 +56,8 @@ any dependancies:
     $ sudo apt-get install apache2
     $ sudo apt-get install sqlite3
     $ sudo apt-get install perl
-    $ sudo apt-get install libclass-dbi-perl
+    $ sudo apt-get install lib-dbi-perl
     $ sudo apt-get install libdbd-sqlite3-perl
-    $ sudo apt-get install libcgi-pm-perl
     $ sudo apt-get install libhtml-template-perl
     $ sudo apt-get install libhtml-parser-perl
 
