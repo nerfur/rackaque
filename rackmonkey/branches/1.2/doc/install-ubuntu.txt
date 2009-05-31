@@ -57,7 +57,7 @@ any dependancies:
     $ sudo apt-get install sqlite3
     $ sudo apt-get install perl
     $ sudo apt-get install libclass-dbi-perl
-    $ sudo apt-get install libdbd-sqlite3
+    $ sudo apt-get install libdbd-sqlite3-perl
     $ sudo apt-get install libcgi-pm-perl
     $ sudo apt-get install libhtml-template-perl
     $ sudo apt-get install libhtml-parser-perl
@@ -112,7 +112,7 @@ Copy the templates into the directory:
 =============================
 Copy the apache configuration into place and restart the web server:
 
-    $ sudo cp rackmonkey-1.2.5/conf/httpd-rackmonkey.conf  /etc/apache2/conf.d 
+    $ sudo cp rackmonkey-1.2.5/conf/httpd-rackmonkey.conf /etc/apache2/conf.d 
     $ sudo /etc/init.d/apache2 force-reload
 
 
@@ -120,7 +120,7 @@ Copy the apache configuration into place and restart the web server:
 =========================
 Copy the default configuration file into /etc:
 
-    $ sudo cp rackmonkey-1.2.5/conf/rackmonkey.conf-default  /etc/rackmonkey.conf
+    $ sudo cp rackmonkey-1.2.5/conf/rackmonkey.conf-default /etc/rackmonkey.conf
 
 Amend /etc/rackmonkey.conf as follows:
 
@@ -144,10 +144,15 @@ Change the owner of the database to be that of the web server:
 
 7. Running RackMonkey
 =====================
-Point your web browser at http://<hostname>/rackmonkey/rackmonkey.pl and you 
-should be greeted by the RackMonkey interface. If you get an error, check out  
-doc/troubleshooting.txt. If all is well, read the user guide under the 'Help' 
-tab within the RackMonkey interface.
+Point your web browser at one of the following:
+
+    http://localhost/rackmonkey/rackmonkey.pl (for local connections)
+    http://<hostname>/rackmonkey/rackmonkey.pl (for remote connections)
+
+You should be greeted by the RackMonkey interface. If all is well, read the\
+user guide under the 'Help' tab within the RackMonkey interface.
+
+If you get an error, check out doc/troubleshooting.txt and README for advice.
 
 
 8. RackMonkey Plugins: Excel and DNS
