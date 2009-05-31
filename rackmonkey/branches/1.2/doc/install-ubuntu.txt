@@ -105,7 +105,7 @@ Make a directory for template and data content:
 
 Copy the templates into the directory:
 
-    $ sudo cp -r rackmonkey-1.2.5/tmpl /var/www/rackmonkey
+    $ sudo cp -r rackmonkey-1.2.5/tmpl /var/lib/rackmonkey
     
 
 4. Configuring the Web Server
