@@ -51,6 +51,7 @@
 		  <li><a href="#reports">Reports</a></li>
 		</ol>
 		<p><strong>Tip:</strong> Hovering your mouse over many items interface items (such as buttons) provides additional information.</p>
+		
 		<h3><a id="interface_basics">1. Interface Basics</a></h3>
 		<h4>Navigation</h4>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/navbar.png" width="748" height="44" alt="" class="screenshot" />
@@ -127,6 +128,7 @@
 		  The footer at the bottom of the form allows the deletion <strong>(F)</strong> and editing <strong>(G)</strong> of the entry, as well as showing
 		  who last updated it and when. Any attempt to delete an entry will require confirmation.
 		</p>
+		
 		<h3 class="print_break"><a id="working_with_racks">4. Working with Racks</a></h3>
 		<h4>Racks Table</h4>
 		<p>
@@ -154,12 +156,25 @@
 		</p>
 		<p>In order to view more than one rack side-by-side you need to select them in the Racks Table (see above).</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/racks-physical.png" width="505" height="370" alt="" class="screenshot" />
+		
 		<h3 class="print_break"><a id="working_with_apps">5. Working with Apps</a></h3>
-		<p>Lorem ipsum...</p>
+		<p>
+		  The app table view works in a very similar way to the device table view. When looking at the details of an individual app you will
+		  see a screen similar to the one below. You can create a new app or return to the view of all apps with the buttons at the top right
+		  of the form <strong>(A)</strong>. To associate an app with a device, click the plus button <strong>(B)</strong> and complete the simple
+		  form. To remove an association choose the minus button <strong>(C)</strong>.
+		</p>
+		<p>
+		  The device view will also show any app associated
+		  with a given device: you can just to a device view by clicking on its name (such as db1.roadrunner.example.com in this example).
+		</p>
+		<img src="<TMPL_VAR NAME=web_root>/graphics/help/app-single.png" width="609" height="283" alt="" class="screenshot" />
+		
 		<h3><a id="reports">6. Reports</a></h3>
 		<p>
-			The <strong>Reports</strong> tab gives you information on all your devices and racks. For example, you can see the total space available in your racks
-			as well as the customers with the most devices, most common operating systems etc. The reports view will be expanded upon in future releases.
+			The <strong>Reports</strong> tab gives you information on all your devices and racks. 
+			For example, you can see the total space available in your racks as well as the customers with the most devices, most common operating systems etc.
+			You can also check for duplicate OS licence keys, serial and asset numbers.
 		</p>
 	</div>
 	<TMPL_INCLUDE NAME="footer.ssi">
