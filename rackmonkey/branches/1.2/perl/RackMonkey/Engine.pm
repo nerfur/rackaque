@@ -2622,6 +2622,43 @@ Returns the count of the given type without meta default items.
 
 This method adds, updates or deletes item records. Further documentation on this method is still being written.
 
+=head2 APP METHODS
+
+=head3 app($app_id)
+
+Returns a reference to a hash for an app identified by $app_id.
+
+ my $app = $backend->app(3);
+ print "App with id=3 has name " . $$app{'name'};
+
+=head3 appList($orderBy)
+
+Returns a reference to a list of all apps ordered by $orderBy. $orderby is the name of a column in the app table, such as app.id. If an order isn't specified then the apps are ordered by app.name.
+
+ my $appList = $backend->apps('app.id'); # order by app.id
+ foreach my $app (@$appList)
+ {
+     print $$app{'id'} . " has name " . $$app{'name'} . ".\n";
+ }
+
+=head3 appDevicesUsedList($app_id)
+
+Returns a reference to a list of devices used by an app identified by $app_id.
+
+=head3 appOnDeviceList($device_id)
+
+Returns a reference to a list of apps using the device identified by $device_id. 
+
+=head3 updateApp($updateTime, $updateUser, $record)
+
+Updates or creates a new an application using the reference to the hash $record, the user $updateUser and the time/date $updateTime. This method can be called 
+directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+
+=head3 deleteApp($updateTime, $updateUser, $record)
+
+Deletes the app identified by id, either stored as $$record{'id'} or directly as $record and records the user $updateUser and the time/date $updateTime. This 
+method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+
 =head1 BUGS
 
 You can view and report bugs at http://www.rackmonkey.org
