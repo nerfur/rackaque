@@ -149,7 +149,7 @@ Point your web browser at one of the following:
     http://localhost/rackmonkey/rackmonkey.pl (for local connections)
     http://<hostname>/rackmonkey/rackmonkey.pl (for remote connections)
 
-You should be greeted by the RackMonkey interface. If all is well, read the\
+You should be greeted by the RackMonkey interface. If all is well, read the
 user guide under the 'Help' tab within the RackMonkey interface.
 
 If you get an error, check out doc/troubleshooting.txt and README for advice.
