@@ -2514,7 +2514,7 @@ RackMonkey::Engine - A DBI-based backend for Rackmonkey
 
  use RackMonkey::Engine;
  my $backend = RackMonkey::Engine->new;
- my $devices = $backend->deviceList();
+ my $devices = $backend->deviceList;
  foreach my $dev (@$devices)
  {
      print $$dev{'name'}." is a ".$$dev{'hardware_name'}.".\n";
@@ -2651,13 +2651,43 @@ Returns a reference to a list of apps using the device identified by $device_id.
 
 =head3 updateApp($updateTime, $updateUser, $record)
 
-Updates or creates a new an application using the reference to the hash $record, the user $updateUser and the time/date $updateTime. This method can be called 
-directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+Updates or creates a new an app using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+
+ # Change the name of the app with id=3 to 'FishFinder'
+ my $app = $backend->app(3);
+ $$app{'name'} = 'FishFinder';
+ updateApp(gmtime, 'Mr Cod', $app);
+ 
+ # Create a new app with the name 'SharkTank' and print its ID
+ my $newApp = {'name' => 'SharkTank'};
+ my $appID = updateApp(gmtime, 'Mr Cod', $newApp);
+ print "My new app has id=$appID\n";
 
 =head3 deleteApp($updateTime, $updateUser, $record)
 
-Deletes the app identified by id, either stored as $$record{'id'} or directly as $record and records the user $updateUser and the time/date $updateTime. This 
+Deletes the app identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This 
 method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+
+ # delete the app with id=3
+ $backend->deleteApp(undef, undef, 3);
+
+=head2 BUILDING METHODS
+
+=head3 building($building_id)
+
+Returns a reference to a hash for a building identified by $building_id. See the app() method for an example.
+
+=head3 buildingList($orderBy)
+
+Returns a reference to a list of all buildingd ordered by $orderBy. $orderby is the name of a column in the building table, such as building.id. If an order isn't specified then the apps are ordered by building.name. See the appList() method for an example.
+
+=head3 updateBuilding($updateTime, $updateUser, $record)
+
+Updates or creates a new an building using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteBuilding($updateTime, $updateUser, $record)
+
+Deletes the building identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
 
 =head1 BUGS
 
