@@ -11,18 +11,23 @@ http://www.rackmonkey.org/doc/1.2.5
 
 Contents
 ========
-To be added
+1. Introduction
+2. Integrating with Other Systems
+3. Creating Custom Views
+4. Storing Custom Information
+5. Stylistic Conventions in RackMonkey Code/DB
+6. Appendix A: RackMonkey Engine Methods
+7. Appendix B: Template Variables
 
-
-Introduction
-============
+1. Introduction
+===============
 This document is quite basic, but we hope it will help you extend and 
 customise RackMonkey. More comprehensive information will be included in
 future releases.
 
 
-Integrating with Other Systems
-==============================
+2. Integrating with Other Systems
+=================================
 
 Linking to RackMonkey
 ---------------------
@@ -39,17 +44,22 @@ window. You should end up with something ending:
 In the other application simple add the complete URL, substituting NAME for 
 the name of the device you wish to link to. Now, when you follow the link from 
 the other application you will be presented with a list of matching RackMonkey 
-devices that you can quickly choose from. The follow section shows an example of this using a MediaWiki template.
-
-Linking from MediaWiki
-----------------------
+devices that you can quickly choose from.
 
 Linking from RackMonkey
 -----------------------
+The easiest way to add a link to another page is to use the notes field. You 
+can create a link using the following syntax:
+
+    [http://www.example.com|example link]
+
+If you want to add a link from every device or rack etc. this can become 
+tedious, so you might like to create a custom view or edit the RackMonkey 
+templates to include the link. See below for details.
 
 
-Creating Custom Views
-=====================
+3. Creating Custom Views
+========================
 You can create a custom view in RackMonkey without writing any code. To create
 your new view you need to choose a type of object (device, rack, service) and 
 a view type to base your template on. 
@@ -134,8 +144,8 @@ A reference to the template variables available is included in Appendix B at
 the end of this guide.
 
 
-Storing Custom Information
-==========================
+4. Storing Custom Information
+=============================
 RackMonkey v1.2.5 includes a custom_info field in the device table. At present
 there isn't an official API to update this, but normal SQL of the following 
 form can be used:
@@ -143,48 +153,44 @@ form can be used:
     UPDATE device SET custom_info='ipsum lorem...' WHERE id=xxx;
 
 
-Stylistic Conventions in RackMonkey Code/DB
--------------------------------------------
+5. Stylistic Conventions in RackMonkey Code/DB
+==============================================
 * Brace style is BSD/Allman
 * Table names are in the singular: room not rooms
 * All tables have a primary key called id
 * Code indentation is 4 column and uses spaces
 
 
-Appendix A: RackMonkey Engine Methods
---------------------------------------
-This section has yet to be incorporated from the POD. For now use:
+6. Appendix A: RackMonkey Engine Methods
+========================================
+This documentation is now included as POD within Engine.pm, use the following 
+to view:
 
 	perldoc Engine.pm.
 
 
-
-Appendix B: Template Variables
-------------------------------
+7. Appendix B: Template Variables
+=================================
+This section includes some of the common RackMonkey template variables. If 
+you're looking for more examples the best place to check is a RackMonkey 
+template for the appropriate view.
 
 System Variables
 ----------------
 The following system variables are available in all templates and ensure that
 templates are portable, no matter where RackMonkey is installed.
 
-base_url - URL of the RackMonkey application, e.g. /cgi-bin/apps/rackmonkey.pl
-web_root - Base URL of web content, e.g. /apps/rackmonkey
+base_url - URL of the RackMonkey application, e.g. /rackmonkey/rackmonkey.pl
+web_root - Base URL of web content, e.g. /rackmonkey
 
+Common Variables
+----------------
+id - The unique identifier for an instance of a  type (such as device), if you 
+have multiple types within a view you will need to use a prefix for at least 
+one type, e.g. building_id.
 
-Building Templates
-------------------
-
-Create
-------
-None.
-
-Default
--------
-
-Edit
-----
-
-Single
-------
+name - The name of a an instance of a type (such as a device) if you 
+have multiple types within a view you will need to use a prefix for at least 
+one type, e.g. building_name.
 
 
