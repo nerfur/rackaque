@@ -13,6 +13,7 @@ v1.2.5 Release Candidate 1 - Released 2009-05-30
 * Completed v1.2.5 documentation
 * Returned the Dell query URL to the default config
 * Added meta_default data to default device_app data
+* Added experimental Ubuntu installation instructions
 
 v1.2.5 Preview 3 - Released 2009-05-23
 --------------------------------------

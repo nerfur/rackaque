@@ -5,8 +5,9 @@
 # RackMonkey v1.2.5 Draft Ubuntu Quick Install Guide                         #
 ##############################################################################
 
-Warning: This procedure has yet to be fully tested. We recommend you continue 
-to use the generic installation instructions doc/install.txt.
+Warning: This procedure is still in a draft state. While it has been tested, 
+we recommend users installing production systems continue to use the generic 
+installation instructions: install.txt.
 
 Contents
 ========

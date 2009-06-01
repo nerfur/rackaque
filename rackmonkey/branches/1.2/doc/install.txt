@@ -27,6 +27,10 @@ This document explains how to install RackMonkey for a generic system.
 Platform specific documents may be available for your operating system at 
 http://www.rackmonkey.org/doc/1.2.5.
 
+There are draft installation instructions for Ubuntu available as 
+install-ubuntu.txt, but we recommend production users continue to use these 
+instructions for now.
+
 This document covers the installation of a new instance of RackMonkey. For
 upgrades you should follow doc/upgrade.txt.
 
