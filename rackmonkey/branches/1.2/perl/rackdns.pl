@@ -52,7 +52,7 @@ if ($query)
 }
 else
 {
-    warn "DNS 'A' record query failed: ", $res->errorstring, "\n";
+    print "DNS 'A' record query failed: ", $res->errorstring, "\n";
 }
 
 # CNAME record query
@@ -68,7 +68,7 @@ if ($query)
 }
 else
 {
-    warn "DNS 'A' record query failed: ", $res->errorstring, "\n";
+    print "DNS 'cname' record query failed: ", $res->errorstring, "\n";
 }
 
 # MX record query
@@ -84,7 +84,7 @@ if ($query)
 }
 else
 {
-    warn "DNS 'MX' record query failed: ", $res->errorstring, "\n";
+    print "DNS 'MX' record query failed: ", $res->errorstring, "\n";
 }
 
 print "\nPlease use the back button to return to the main RackMonkey application.\n";
