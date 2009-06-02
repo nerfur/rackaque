@@ -15,6 +15,9 @@
 	@import "<TMPL_VAR NAME=web_root>/styles/tabs.css";
 	@import "<TMPL_VAR NAME=web_root>/styles/help.css";
 	</style>
+	<style type="text/css" media="print">
+	@import "<TMPL_VAR NAME=web_root>/styles/print.css";	
+	</style>
 	<script type="text/javascript" src="<TMPL_VAR NAME=web_root>/javascript/racklib.js"></script>
 	<link rel="icon" href="<TMPL_VAR NAME=web_root>/graphics/favicon.ico" />
 </head>
@@ -68,7 +71,7 @@
 		  If your racks don't line up, try increasing this value by 1px and reloading the page. Repeat until your racks line up.
 		</p>
 		
-		<h3><a id="restricting_access">2. Restricting Access and Recording Who Made Changes</a></h3>
+		<h3 class="print_break"><a id="restricting_access">2. Restricting Access and Recording Who Made Changes</a></h3>
 		<h4>2.1. Password Protecting RackMonkey</h4>
 		<p>
 			You can control access to RackMonkey using standard Apache auth (often configured in an .htaccess file).
