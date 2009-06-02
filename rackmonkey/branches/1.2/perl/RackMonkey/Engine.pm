@@ -759,7 +759,8 @@ sub deviceListUnracked    # consider merging this with existing device method (t
 			domain.name					AS domain_name,
 			domain.meta_default_data	AS domain_meta_default_data,
 			role.name 					AS role_name,
-			os.name 					AS os_name
+			os.name 					AS os_name,
+			customer.name 				AS customer_name
 			FROM
 			device, rack, row, room, building, hardware, org hardware_manufacturer, org customer, domain, role, os
 		WHERE
