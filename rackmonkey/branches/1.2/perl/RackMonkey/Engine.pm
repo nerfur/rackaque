@@ -761,7 +761,7 @@ sub deviceListUnracked    # consider merging this with existing device method (t
 			role.name 					AS role_name,
 			os.name 					AS os_name
 			FROM
-			device, rack, row, room, building, hardware, org hardware_manufacturer, domain, role, os
+			device, rack, row, room, building, hardware, org hardware_manufacturer, org customer, domain, role, os
 		WHERE
 			device.meta_default_data = 0 AND
 			building.meta_default_data <> 0 AND
@@ -773,7 +773,8 @@ sub deviceListUnracked    # consider merging this with existing device method (t
 			hardware.manufacturer = hardware_manufacturer.id AND
 			device.domain = domain.id AND
 			device.role = role.id AND
-			device.os = os.id
+			device.os = os.id AND
+			device.customer = customer.id
 			$filterBy
 		ORDER BY $orderBy
 	!
