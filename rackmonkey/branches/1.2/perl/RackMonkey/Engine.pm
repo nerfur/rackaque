@@ -865,15 +865,20 @@ sub _validateDeviceInput
     {
         croak "RM_ENGINE: OS licence keys cannot exceed " . $self->getConf('maxstring') . " characters.";
     }
-    unless (length($$record{'primary_mac'}) <= $self->getConf('maxstring'))
+    if (defined $$record{'primary_mac'}) # Not in UI by default: check defined to avoid warning message, should really be extended to all checks
     {
-        croak "RM_ENGINE: Primary MACs cannot exceed " . $self->getConf('maxstring') . " characters.";
+        unless (length($$record{'primary_mac'}) <= $self->getConf('maxstring'))
+        {
+            croak "RM_ENGINE: Primary MACs cannot exceed " . $self->getConf('maxstring') . " characters.";
+        }
     }
-    unless (length($$record{'install_build'}) <= $self->getConf('maxstring'))
+    if (defined $$record{'install_build'}) # Not in UI by default: check defined to avoid warning message, should really be extended to all checks
     {
-        croak "RM_ENGINE: Install build names cannot exceed " . $self->getConf('maxstring') . " characters.";
+        unless (length($$record{'install_build'}) <= $self->getConf('maxstring'))
+        {
+            croak "RM_ENGINE: Install build names cannot exceed " . $self->getConf('maxstring') . " characters.";
+        }
     }
-
     # check if we have a meta default location if so set rack position to zero, otherwise check we have a valid rack position
     my $rack = $self->rack($$record{'rack'});
     if ($$rack{'meta_default_data'})
@@ -2688,6 +2693,30 @@ Updates or creates a new an building using the reference to the hash $record, th
 =head3 deleteBuilding($updateTime, $updateUser, $record)
 
 Deletes the building identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head2 DEVICE METHODS
+
+=head3 device
+
+=head3 deviceList($orderBy, $filter, $filterBy, $deviceSearch)
+
+=head3 deviceListInRack($rack_id)
+
+=head3 deviceListUnracked($orderBy, $filter, $filterBy, $deviceSearch)
+
+=head3 deviceCountUnracked()
+
+=head3 updateDevice
+
+=head3 deleteDevice
+
+=head3 totalSizeDevice
+
+=head3 duplicateSerials
+
+=head3 duplicateAssets
+
+=head3 duplicateOSLicenceKey
 
 =head1 BUGS
 
