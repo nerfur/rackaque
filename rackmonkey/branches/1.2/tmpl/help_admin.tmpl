@@ -37,23 +37,29 @@
 			For basic installation and configuration information see the install guide included with the RackMonkey download or
 			view the <a href="http://www.rackmonkey.org/doc/1.2.5">online docs</a>.
 		</p>
-		<h3>Configuration Options</h3>
+		<h3 class="no_print" style="margin-bottom: -4px">Contents</h3>
+		<ol class="no_print">
+		  <li><a href="#configuration_options">Configuration Options</a></li>
+		  <li><a href="#restricting_access">Restricting Access and Recording Who Made Changes</a></li>
+		  <li><a href="#change_log">Change Log</a></li>
+		</ol>
+		<h3><a id="configuration_options">1. Configuration Options</a></h3>
 		<p>
 		The RackMonkey configuration file (by default stored in /etc/rackmonkey.conf on the server) allows you to adjust the
 		behaviour of RackMonkey. At present these values can't be set on a per-user basis, they apply to all users.
 		</p>
-		<h4>Rack Numbering Direction</h4>
+		<h4>1.1. Rack Numbering Direction</h4>
 		<p>
 		  RackMonkey allows you to number racks from the top (highest position in the rack) or bottom. By default racks are numbered
 		  from the bottom. If your racks are normally numbered from the top, change the value of <em>number_from_top</em> to 1 in the
 		  config file:
 		</p>
 		<pre>number_from_top = 1</pre>
-		<h4>Size of 1U in Physical Rack View</h4>
+		<h4>1.2. Size of 1U in Physical Rack View</h4>
 		<p>
 		  The physical rack view uses HTML tables to draw a rack. By default a 1U table cell occupies 14px. If you want to make this larger or smaller
-		  you can change the value of <em>size_of_u</em> to you preferred size in pixels. As the table contains graphics (for example the plus buttons)
-		  there is a limit to how thin 1U will actually appear. To make 1U 20 pixels high set the following:
+		  you can change the value of <em>size_of_u</em> to you preferred size in pixels. As the table contains graphics (for example the plus buttons
+		  used to add new devices) there is a limit to how thin 1U will actually appear. To make 1U 20 pixels high set the following:
 		</p> 
 		<pre>size_of_u = 20</pre>
 		<p>
@@ -62,8 +68,8 @@
 		  If your racks don't line up, try increasing this value by 1px and reloading the page. Repeat until your racks line up.
 		</p>
 		
-		<h3>Restricting Access and Recording Who Made Changes</h3>
-		<h4>Password Protecting RackMonkey</h4>
+		<h3><a id="restricting_access">2. Restricting Access and Recording Who Made Changes</a></h3>
+		<h4>2.1. Password Protecting RackMonkey</h4>
 		<p>
 			You can control access to RackMonkey using standard Apache auth (often configured in an .htaccess file).
 			If you set up accounts this way RackMonkey will use the username in the change log so you can see who
@@ -72,12 +78,12 @@
 			who updated what and when. For information on setting up authentication using Apache see:
 			<a href="http://httpd.apache.org/docs/2.2/howto/auth.html">Apache Docs</a> (online).
 		</p>
-		<h4>Read Only Access</h4>
+		<h4>2.2. Read Only Access</h4>
 		<p>
 			To allow a user read only access to RackMonkey create an account called 'guest' (with any password you choose).
 			A guest account has full read access but cannot edit anything.
 		</p>
-		<h4>Change Log</h4>
+		<h3><a id="change_log">3. Change Log</a></h3>
 		<p>
 			Every time a record is edited in RackMonkey the details of the change are recorded. 
 			The time and user of the last change is visible at the bottom

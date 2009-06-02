@@ -43,7 +43,7 @@
 		</p>
 		<h3 class="no_print" style="margin-bottom: -4px">Contents</h3>
 		<ol class="no_print">
-		  <li><a href="#interface_basics">Interface Basics &amp; Navigation</a></li>
+		  <li><a href="#interface_basics">Interface Basics</a></li>
 		  <li><a href="#config">Config</a></li>
 		  <li><a href="#working_with_devices">Working with Devices</a></li>
 		  <li><a href="#working_with_racks">Working with Racks</a></li>
@@ -52,19 +52,25 @@
 		</ol>
 		<p><strong>Tip:</strong> Hovering your mouse over many items interface items (such as buttons) provides additional information.</p>
 		
-		<h3><a id="interface_basics">1. Interface Basics &amp; Navigation</a></h3>
+		<h3><a id="interface_basics">1. Interface Basics</a></h3>
+		<h4>1.1. Navigation</h4>
+		<p>The top of every RackMonkey screen looks similar to the screenshot below. There is a set of tabs <strong>(A)</strong> that provide access to the key parts of the application, a dropdown to jump to a physical view of a rack <strong>(B)</strong> and a search box <strong>(C)</strong> which allows you to find devices  by name, serial or asset number. The search is not case-sensitive and will also find partial matches. For example, searching for 'www' will find devices called 'WWW', 'www21' and 'www22'.</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/navbar.png" width="748" height="44" alt="" class="screenshot" />
-		<p>The top of every RackMonkey screen looks similar to the screenshot above. There is a set of tabs <strong>(A)</strong> that provide access to the key parts of the application, a dropdown to jump to a physical view of a rack <strong>(B)</strong> and a search box <strong>(C)</strong> which allows you to find devices  by name, serial or asset number. The search is not case-sensitive and will also find partial matches. For example, searching for 'www' will find devices called 'WWW', 'www21' and 'www22'.</p>
-		<h4>RackMonkey Organisation</h4>
+		<h4>1.2. RackMonkey Organisation</h4>
+		<p>
+		  In order to use RackMonkey effectively you should be clear on what the different types of objects represent.
+		  The core objects are racks, devices and apps and they have their own interface tabs. 
+		  Other objects can be found under the <a href="#config">Config</a> tab.
+		</p>
 		<ul>
 			<li>Servers, routers, switches etc. are <strong>devices</strong> and are contained within <strong>racks</strong>.</li>
 			<li>A <strong>device</strong> has a <strong>hardware</strong> model and an <strong>operating system</strong>.</li>
-			<li>A <strong>device</strong> has a <strong>domain</strong> (such as rackmonkey.org), a <strong>role</strong> (such as database server), a <strong>customer</strong> and a <strong>service level</strong>.</li>
+			<li>A <strong>device</strong> optionally has a <strong>domain</strong> (such as rackmonkey.org), a <strong>role</strong> (such as database server), a <strong>customer</strong> and a <strong>service level</strong>.</li>
 			<li><strong>Apps</strong> run on <strong>devices</strong>.</li>
 			<li><strong>Racks</strong> are organised in <strong>rows</strong> which reside in <strong>rooms</strong> within <strong>buildings</strong>.</li>
 		</ul>
 		<p><em>NB. Organisation by row is not supported within the user-interface in v1.2.5. It will be added in a later release.</em></p>
-		<h4>Printing</h4>
+		<h4>1.3. Printing</h4>
 		<p>
 		  RackMonkey v1.2.5 includes dedicated print CSS to produce high-quality print outs. Print as normal in your browser and the optimised 
 		  CSS should be chosen automatically. For example, you might use this to take a rack diagram into the data centre. Even the help pages
@@ -78,7 +84,7 @@
 		<p>The link at the bottom of config view <em>View RackMonkey System &amp; Database Information</em> can be used to get information on the software you're using. If you're reporting a bug please include this information.</p>
 		
 		<h3 class="print_break"><a id="working_with_devices">3. Working with Devices</a></h3>
-		<h4>Deciding How to View Devices</h4>
+		<h4>3.1. Deciding How to View Devices</h4>
 		<p>
 			The <strong>Devices</strong> tab (screenshot below) allows you to see all the devices and their configuration. There are several devices views which present different information; you can select an alternate view from the <em>View Type</em> dropdown <strong>(A)</strong>. For example, if you are interested in asset information (such as serial number and age of device), choose the <em>Asset</em> view. To sort the table by a particular column click on its name; for example you could sort devices by <em>Customer</em> rather than the default name (chosen by clicking on the <em>Device</em> column). You can show/hide domain information for devices by clicking the <em>.dom</em> link <strong>(D)</strong>.
 		</p>
@@ -91,7 +97,7 @@
 		  The format of the exported spreadsheet is Excel 97-2004 and is viewable in a wide range of applications, including Microsoft Excel, OpenOffice Calc 
 		  and iWork Numbers.
 		</p>
-		<h4>Working with Individual Devices</h4>
+		<h4>3.2. Working with Individual Devices</h4>
 		<p>
 			To view the full details for an individual device, select its name. This brings up a separate screen which also allows you to edit, copy or delete
 			the device. You can also edit a device directly by selecting the pencil icon next to its name or delete it by clicking on the 
@@ -127,7 +133,7 @@
 		  The footer at the bottom of the form allows the deletion <strong>(F)</strong> and editing <strong>(G)</strong> of the entry, as well as showing
 		  who last updated it and when. Any attempt to delete an entry will require confirmation.
 		</p>
-		<h4>Devices &amp; Domains</h4>
+		<h4>3.3 Devices &amp; Domains</h4>
 		<p>
 		  When editing devices, RackMonkey allows you to assign a domain to each device from a dropdown. If you have many devices on the same domains this makes
 		  things easier and cleaner. For situations where many devices are on separate domains (such as colocation) you may prefer to put the complete name 
@@ -136,7 +142,7 @@
 		</p>
 		
 		<h3 class="print_break"><a id="working_with_racks">4. Working with Racks</a></h3>
-		<h4>Racks Table</h4>
+		<h4>4.1. Racks Table</h4>
 		<p>
 			The <strong>Racks</strong> view (screenshot below) gives you an overview of your racks: which room they reside in and the number of devices they
 			contain. To view the details of a particular rack select its name <strong>(B)</strong>. To view the layout of devices within a rack select the
@@ -151,7 +157,7 @@
 			icon next to its name, to delete it click on the minus icon <strong>(B)</strong>.
 		</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/racks.png" width="548" height="229" alt="" class="screenshot" />
-		<h4>Racks Physical View</h4>
+		<h4>4.2. Racks Physical View</h4>
 		<p>
 			In the <strong>Physical Rack</strong> View (screenshot below) you can see the contents of your racks. You can jump to physical view at any time
 			using the dropdown at the top of every view (see <a href="#interface_basics">interface basics</a>). This view shows the name and hardware type of
