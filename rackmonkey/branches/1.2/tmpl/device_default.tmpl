@@ -72,7 +72,7 @@
 				<th><a title="Sort by hardware type" href="<TMPL_VAR NAME=base_url>?view=device&amp;order_by=hardware.name&amp;<TMPL_VAR NAME=filter_string>">Hardware</a></th>
 				<th><a title="Sort by operating system" href="<TMPL_VAR NAME=base_url>?view=device&amp;order_by=os.name&amp;<TMPL_VAR NAME=filter_string>">OS</a></th>
 				<th><a title="Sort by customer" href="<TMPL_VAR NAME=base_url>?view=device&amp;order_by=customer.name&amp;<TMPL_VAR NAME=filter_string>">Customer</a></th>
-				<th><a title="Sort by notes" href="<TMPL_VAR NAME=base_url>?view=device&amp;order_by=device.notes">Notes</a></th>		
+				<th><a title="Sort by notes" href="<TMPL_VAR NAME=base_url>?view=device&amp;order_by=device.notes&amp;<TMPL_VAR NAME=filter_string>">Notes</a></th>		
 			</tr>
 			<TMPL_IF NAME=devices><TMPL_LOOP NAME=devices>
 			<TMPL_IF NAME="__odd__"><tr class="odd"><TMPL_ELSE><tr class="even"></TMPL_IF>
