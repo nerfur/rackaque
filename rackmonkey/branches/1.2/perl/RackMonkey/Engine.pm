@@ -889,8 +889,9 @@ sub _validateDeviceInput
     }
     else    # location is in a real rack
     {
-        # check we have a position
+        # check we have a position and make sure it's an integer
         croak "RM_ENGINE: You need to specify a Rack Position." unless (length($$record{'rack_pos'}) > 0);
+        $$record{'rack_pos'} = int($$record{'rack_pos'} + 0.5);
 
         # get the size of this hardware
         my $hardware     = $self->hardware($$record{'hardware_model'});
@@ -1316,7 +1317,7 @@ sub _validateHardwareUpdate
 
     # no validation for $$record{'manufacturer_id'} - foreign key constraints will catch
     croak "RM_ENGINE: You must specify a size for your hardware model." unless $$record{'size'};
-    $$record{'size'} += 0;    # Force to numeric for comparison
+    $$record{'size'} = int($$record{'size'} + 0.5);  # Only integer U supported, force size to be an integer
     croak "RM_ENGINE: Size must be between 1 and " . $self->getConf('maxracksize') . " units."
       unless (($$record{'size'} > 0) && ($$record{'size'} <= $self->getConf('maxracksize')));
     croak "RM_ENGINE: Image filenames must be between 0 and " . $self->getConf('maxstring') . " characters."
