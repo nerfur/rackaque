@@ -43,7 +43,7 @@
 		</p>
 		<h3 class="no_print" style="margin-bottom: -4px">Contents</h3>
 		<ol class="no_print">
-		  <li><a href="#interface_basics">Interface Basics</a></li>
+		  <li><a href="#interface_basics">Interface Basics &amp; Navigation</a></li>
 		  <li><a href="#config">Config</a></li>
 		  <li><a href="#working_with_devices">Working with Devices</a></li>
 		  <li><a href="#working_with_racks">Working with Racks</a></li>
@@ -52,8 +52,7 @@
 		</ol>
 		<p><strong>Tip:</strong> Hovering your mouse over many items interface items (such as buttons) provides additional information.</p>
 		
-		<h3><a id="interface_basics">1. Interface Basics</a></h3>
-		<h4>Navigation</h4>
+		<h3><a id="interface_basics">1. Interface Basics &amp; Navigation</a></h3>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/navbar.png" width="748" height="44" alt="" class="screenshot" />
 		<p>The top of every RackMonkey screen looks similar to the screenshot above. There is a set of tabs <strong>(A)</strong> that provide access to the key parts of the application, a dropdown to jump to a physical view of a rack <strong>(B)</strong> and a search box <strong>(C)</strong> which allows you to find devices  by name, serial or asset number. The search is not case-sensitive and will also find partial matches. For example, searching for 'www' will find devices called 'WWW', 'www21' and 'www22'.</p>
 		<h4>RackMonkey Organisation</h4>
@@ -127,6 +126,13 @@
 		  the App view are included below.
 		  The footer at the bottom of the form allows the deletion <strong>(F)</strong> and editing <strong>(G)</strong> of the entry, as well as showing
 		  who last updated it and when. Any attempt to delete an entry will require confirmation.
+		</p>
+		<h4>Devices &amp; Domains</h4>
+		<p>
+		  When editing devices, RackMonkey allows you to assign a domain to each device from a dropdown. If you have many devices on the same domains this makes
+		  things easier and cleaner. For situations where many devices are on separate domains (such as colocation) you may prefer to put the complete name 
+		  (including the domain) in the 'name' field and set the domain drop down to 'not applicable'. RackMonkey is smart enough to use the name correctly in
+		  this form and the DNS plugin will work as expected. You can of course mix both approaches.
 		</p>
 		
 		<h3 class="print_break"><a id="working_with_racks">4. Working with Racks</a></h3>

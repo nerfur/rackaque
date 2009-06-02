@@ -19,10 +19,19 @@ p
 	border-color: silver;
 }
 
+h2
+{
+    margin-bottom: 0px;
+}
+
 h3.error
 {
 	margin-bottom: 0px;
-	
+}
+
+h4
+{
+	margin-bottom: -8px;
 }
 
 p.error
