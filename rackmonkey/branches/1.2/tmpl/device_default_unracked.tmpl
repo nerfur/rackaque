@@ -95,7 +95,8 @@
 			</TMPL_LOOP></TMPL_IF>
 			<tr>
 				<td colspan="12" class="footer">
-					<TMPL_UNLESS NAME=all_devices_listed><div style="float: right"><a href="<TMPL_VAR NAME=base_url>?view=device&amp;view_type=default">Show all</a></div></TMPL_UNLESS>
+				  <TMPL_UNLESS NAME=all_devices_listed><div style="float: right"><a href="<TMPL_VAR NAME=base_url>?view=device&amp;view_type=default_unracked">Show all unracked</a> |
+					<a href="<TMPL_VAR NAME=base_url>?view=device&amp;view_type=default">Show all</a></div></TMPL_UNLESS>
 					Showing <TMPL_VAR ESCAPE=HTML NAME=listed_device_count> of <TMPL_VAR ESCAPE=HTML NAME=total_device_count> devices. <em>Devices with a pink background aren't in service.</em>
 				</td>
 			</tr>
