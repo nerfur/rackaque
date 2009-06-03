@@ -95,7 +95,8 @@
 			The <strong>Devices</strong> tab (screenshot below) allows you to see all the devices and their configuration. There are several devices views which present different information; you can select an alternate view from the <em>View Type</em> dropdown <strong>(A)</strong>. For example, if you are interested in asset information (such as serial number and age of device), choose the <em>Asset</em> view. To sort the table by a particular column click on its name; for example you could sort devices by <em>Customer</em> rather than the default name (chosen by clicking on the <em>Device</em> column). You can show/hide domain information for devices by clicking the <em>.dom</em> link <strong>(D)</strong>.
 		</p>
 		<p>
-			The <em>Show Filters</em> button <strong>(B)</strong> brings up the filter options that allow you to narrow down the devices shown to those of interest; for example you can show all devices for a given customer or all those running Ubuntu. To return to a view of all devices, click the <em>Reset</em> button at the right of the filters or select the <em>Show All</em> link (not pictured) in the table footer <strong>(G)</strong> . 
+			The <em>Show Filters</em> button <strong>(B)</strong> brings up the filter options that allow you to narrow down the devices shown to those of interest; for example you can show all devices for a given customer or all those running Ubuntu. To return to a view of all devices, click the <em>Reset</em> button at the right of the filters or select the <em>Show All</em> link (not pictured) in the table footer <strong>(G)</strong>. Devices that aren't in service are shown with a red 
+			tint. 
 		</p>
 		<p>
 		  If you have enabled the Excel export plugin (see installation instructions for details) then you can export the complete device table by selecting
@@ -109,7 +110,8 @@
 			the device. You can also edit a device directly by selecting the pencil icon next to its name or delete it by clicking on the 
 			minus icon <strong>(F)</strong>. To view a device within its rack, select the link in the rack column <strong>(E)</strong>. 
 			You can add a new device by clicking on the plus icon <strong>(D)</strong>. If you're adding many items to the same rack 
-			you may find it easier to do this Racks Physical View (discussed below). If a device name has a pink background then it's marked as not in service.
+			you may find it easier to do this Racks Physical View (discussed below). If a device name has a pink background then it's not in service, see the single
+			device view below.
 		</p>		
 		<p>
 		  The footer at the bottom the page <strong>(H)</strong> includes information on the connected user/IP, RackMonkey version and time the
@@ -168,9 +170,12 @@
 			In the <strong>Physical Rack</strong> View (screenshot below) you can see the contents of your racks. You can jump to physical view at any time
 			using the dropdown at the top of every view (see <a href="#interface_basics">interface basics</a>). This view shows the name and hardware type of
 			each device. To view more details about devices in the rack, such as the manufacturer and serial number, click on the 'i' icon at the top left 
-			<strong>(A)</strong>. To edit the rack itself click on the pencil at the top right of the rack <strong>(B)</strong>. To edit or delete a device,
-			click on the pencil <strong>(C)</strong> or minus buttons <strong>(D)</strong> next to the device. To add devices to the rack, click on the plus
-			icon in the location you wish to place the device <strong>(E)</strong>.
+			<strong>(A)</strong>. To edit the rack itself click on the pencil at the top right of the rack <strong>(B)</strong>.
+		</p>
+		<p>
+		  To edit or delete a device, click on the pencil <strong>(C)</strong> or minus buttons <strong>(D)</strong> next to the device. To add devices to the
+		  rack, click on the plus icon in the location you wish to place the device <strong>(E)</strong>. Devices that aren't in service are shown within the
+		  rack with a red tint <strong>(F)</strong>.
 		</p>
 		<p>In order to view more than one rack side-by-side you need to select them in the Racks Table (see above).</p>
 		<img src="<TMPL_VAR NAME=web_root>/graphics/help/racks-physical.png" width="505" height="370" alt="" class="screenshot" />
