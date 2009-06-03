@@ -1957,10 +1957,13 @@ sub _validateRackUpdate
     croak "RM_ENGINE: Unable to validate rack. No rack record specified." unless ($record);
     $self->_checkName($$record{'name'});
     $self->_checkNotes($$record{'notes'});
+    
+    # check we have a size, make sure it's an integer and in the allowed range
     croak "RM_ENGINE: You must specify a size for your rack." unless $$record{'size'};
-    $$record{'size'} += 0;    # Force to numeric for comparison
+    $$record{'size'} = int($$record{'size'} + 0.5);
     croak "RM_ENGINE: Rack sizes must be between 1 and " . $self->getConf('maxracksize') . " units."
       unless (($$record{'size'} > 0) && ($$record{'size'} <= $self->getConf('maxracksize')));
+      
     $$record{'numbering_direction'} = $$record{'numbering_direction'} ? 1 : 0;
     my $highestPos = $self->_highestUsedInRack($$record{'id'}) || 0;
 
