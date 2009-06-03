@@ -14,6 +14,12 @@ v1.2.5 Release Candidate 1 - Released 2009-06-xx
 * Returned the Dell query URL to the default config
 * Added meta_default data to default device_app data
 * Added experimental Ubuntu installation instructions
+* Several minor fixes to templates to validate as XHTML 1.1
+* Fixed note sorting in device views so it preserves filters
+* Added customer column to unracked device view
+* Out-of-service devices have a red tint in rack physical view
+* DNS plugin reports lookup failures in results
+* Several minor bug fixes (see svn log for full details)
 
 v1.2.5 Preview 3 - Released 2009-05-23
 --------------------------------------
