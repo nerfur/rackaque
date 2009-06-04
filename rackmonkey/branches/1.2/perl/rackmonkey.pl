@@ -302,12 +302,10 @@ eval {
                 my $app = $backend->app($id);
                 $template->param($app);
 
-                my $devices = $backend->simpleList('device');
-                unshift @$devices, {'id' => '', 'name' => '-'};
+                my $devices = $backend->deviceList;
                 $template->param('devices' => $devices);
 
                 my $relations = $backend->simpleList('app_relation', 1);
-                unshift @$relations, {'id' => '', 'name' => '-'};
                 $template->param('relations' => $relations);
             }
         }
