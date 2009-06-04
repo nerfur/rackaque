@@ -2664,7 +2664,7 @@ Returns a reference to a list of apps using the device identified by $device_id.
 
 =head3 updateApp($updateTime, $updateUser, $record)
 
-Updates or creates a new an app using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+Updates or creates a new app using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
 
  # Change the name of the app with id=3 to 'FishFinder'
  my $app = $backend->app(3);
@@ -2692,11 +2692,11 @@ Returns a reference to a hash for a building identified by $building_id. See the
 
 =head3 buildingList($orderBy)
 
-Returns a reference to a list of all buildingd ordered by $orderBy. $orderby is the name of a column in the building table, such as building.id. If an order isn't specified then the apps are ordered by building.name. See the appList() method for an example.
+Returns a reference to a list of all buildings ordered by $orderBy. $orderby is the name of a column in the building table, such as building.id. If an order isn't specified then the buildings are ordered by building.name. See the appList() method for an example.
 
 =head3 updateBuilding($updateTime, $updateUser, $record)
 
-Updates or creates a new an building using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+Updates or creates a new building using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
 
 =head3 deleteBuilding($updateTime, $updateUser, $record)
 
@@ -2704,27 +2704,55 @@ Deletes the building identified by id, either stored as $$record{'id'} or direct
 
 =head2 DEVICE METHODS
 
-=head3 device
+=head3 device($device_id)
 
-=head3 deviceList($orderBy, $filter, $filterBy, $deviceSearch)
+Returns a reference to a hash for a device identified by $device_id. See the app() method for an example.
+
+=head3 deviceList($orderBy, [$filter], [$deviceSearch])
+
+Returns a reference to a list of all devices ordered by $orderBy. $orderby is the name of a column in the devices table, such as device.id. If an order isn't specified then the devices are ordered by devices.name. Optionally also takes filter and search parameters. 
+
+$filter is a reference to a hash containing one or more of the following filters: filter_device_customer, filter_device_role, filter_device_hardware and filter_device_os as the keys, with the ID of the type as a value. For example, if $$filer{'filter_device_os'} = 6, then only devices whose os field is 6 will be included in the results. $deviceSearch is a string that restricts the list of returned devices to those whose name, serial or asset number includes the specified string. Search matching is case-insensitive. See the deivce_default templates and associated rackmonkey.pl code for examples of this. See the appList() method for a simple example of list methods.
 
 =head3 deviceListInRack($rack_id)
 
+Returns a reference to a list of devices in the rack identified by $rack_id. Otherwise similar to deviceList(), but without the order by, filter or search options.
+
 =head3 deviceListUnracked($orderBy, $filter, $filterBy, $deviceSearch)
+
+Returns a reference to a list of all devices not in a rack. Otherwise indentical to deviceList(). This method may be merged with deviceList() in a later release.
 
 =head3 deviceCountUnracked()
 
-=head3 updateDevice
+Returns the number of devices that are not racked as a scalar. For example:
+
+ print $backend->deviceCountUnracked . "devices are unracked.\n";
+
+=head3 updateDevice($updateTime, $updateUser, $record)
+
+Updates or creates a new device using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
 
 =head3 deleteDevice
 
+Deletes the device identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
 =head3 totalSizeDevice
+
+Returns the total size of all devices in U as a scalar. For example:
+
+ print "Devices occupy " . $backend->totalSizeDevice . "U.\n";
 
 =head3 duplicateSerials
 
+Returns a reference to a list of all devices having duplicate serial numbers. See the report_duplicates template and associated rackmonkey.pl code for an example of usage.
+
 =head3 duplicateAssets
 
+Returns a reference to a list of all devices having duplicate asset numbers. See the report_duplicates template and associated rackmonkey.pl code for an example of usage.
+
 =head3 duplicateOSLicenceKey
+
+Returns a reference to a list of all devices having duplicate OS licence keys. See the report_duplicates template and associated rackmonkey.pl code for an example of usage.
 
 =head1 BUGS
 
