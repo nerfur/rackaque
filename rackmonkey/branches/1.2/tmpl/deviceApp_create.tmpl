@@ -32,12 +32,14 @@
         <tr>
           <td>
             <strong><TMPL_VAR ESCAPE=HTML NAME=name></strong>
-            <select name="relation_id"><TMPL_LOOP NAME=relations>
+            <select name="relation_id">
+              <option value="">-</option><TMPL_LOOP NAME=relations>
               <option value="<TMPL_VAR ESCAPE=HTML NAME=id>"><TMPL_VAR ESCAPE=HTML NAME=name></option></TMPL_LOOP>
             </select>
             <strong>device</strong>
-            <select name="device_id"><TMPL_LOOP NAME=devices>
-              <option value="<TMPL_VAR ESCAPE=HTML NAME=id>"><TMPL_VAR ESCAPE=HTML NAME=name></option></TMPL_LOOP>
+            <select name="device_id">
+              <option value="">-</option><TMPL_LOOP NAME=devices>
+              <option value="<TMPL_VAR ESCAPE=HTML NAME=id>"><TMPL_VAR ESCAPE=HTML NAME=name><TMPL_UNLESS NAME=domain_meta_default_data>.<TMPL_VAR ESCAPE=HTML NAME=domain_name></TMPL_UNLESS></option></TMPL_LOOP>
             </select>
           </td>
         </tr>
