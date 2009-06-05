@@ -291,15 +291,15 @@ RackMonkey::CGI - Encapsulate CGI and other misc functionality
 
 =head1 SYNOPSIS
 
-This module is due to be replaced in RackMonkey v1.3.
+N/A
 
 =head1 DESCRIPTION
 
-This module is due to be replaced in RackMonkey v1.3.
+This module is due to be replaced in RackMonkey v1.3. Use by new applications is not recommended.
 
 =head1 BUGS
 
-You can view and report bugs at http://www.rackmonkey.org
+You can view and report bugs at http://www.rackmonkey.org/issues
 
 =head1 LICENSE
 
