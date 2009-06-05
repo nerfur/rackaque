@@ -2584,11 +2584,11 @@ meta_default_data - If true this indicates the item is not real, but represents 
 
 =item *
 
-meta_update_time - Is a string representing the time this record was last updated. This time is always GMT. This field is automatically updated by the engine when actions are performed via performAct, but if update methods (such as updateBuilding) are called directly the caller should supply this information. The time is in the format YYYY-MM-DD HH:MM:SS.
+meta_update_time - Is a string representing the time this record was last updated. This time is always GMT. This field is automatically updated by the engine when actions are performed via performAct(), but if update methods (such as updateBuilding) are called directly the caller should supply this information. The time is in the format YYYY-MM-DD HH:MM:SS.
 
 =item *
 
-meta_update_user - Is a string representing the user who last updated this record. The caller must supply this data, whether calling performAct or update methods directly. If a username is not available it is usual to store the IP of the client instead.
+meta_update_user - Is a string representing the user who last updated this record. The caller must supply this data, whether calling performAct() or update methods directly. If a username is not available it is usual to store the IP of the client instead.
 
 =back
 
@@ -2664,7 +2664,7 @@ Returns a reference to a list of apps using the device identified by $device_id.
 
 =head3 updateApp($updateTime, $updateUser, $record)
 
-Updates or creates a new app using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+Updates or creates a new app using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc.
 
  # Change the name of the app with id=3 to 'FishFinder'
  my $app = $backend->app(3);
@@ -2679,7 +2679,7 @@ Updates or creates a new app using the reference to the hash $record, the user $
 =head3 deleteApp($updateTime, $updateUser, $record)
 
 Deletes the app identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This 
-method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc.
+method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc.
 
  # delete the app with id=3
  $backend->deleteApp(undef, undef, 3);
@@ -2696,11 +2696,11 @@ Returns a reference to a list of all buildings ordered by $orderBy. $orderby is 
 
 =head3 updateBuilding($updateTime, $updateUser, $record)
 
-Updates or creates a new building using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+Updates or creates a new building using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
 
 =head3 deleteBuilding($updateTime, $updateUser, $record)
 
-Deletes the building identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+Deletes the building identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
 
 =head2 DEVICE METHODS
 
@@ -2730,11 +2730,11 @@ Returns the number of devices that are not racked as a scalar. For example:
 
 =head3 updateDevice($updateTime, $updateUser, $record)
 
-Updates or creates a new device using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+Updates or creates a new device using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
 
 =head3 deleteDevice($updateTime, $updateUser, $record)
 
-Deletes the device identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+Deletes the device identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
 
 =head3 totalSizeDevice()
 
@@ -2766,11 +2766,11 @@ Returns a reference to a list of all domains ordered by $orderBy. $orderby is th
 
 =head3 updateDomain($updateTime, $updateUser, $record)
 
-Updates or creates a new domain using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+Updates or creates a new domain using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
 
 =head3 deleteDomain($updateTime, $updateUser, $record)
 
-Deletes the domain identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+Deletes the domain identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
 
 =head2 HARDWARE METHODS
 
@@ -2784,7 +2784,7 @@ Returns a reference to a list of all hardware models ordered by $orderBy. $order
 
 =head3 hardwareListBasic()
 
-Returns a reference to a list of all hardware models with basic information, including the manufacturer. For situations when the full information returned by hardwareList isn't needed.
+Returns a reference to a list of all hardware models with basic information, including the manufacturer. For situations when the full information returned by hardwareList() isn't needed.
 
 =head3 hardwareByManufacturer()
 
@@ -2811,15 +2811,61 @@ Returns a reference to a list of hardware manufacturers, each of which contains 
 
 =head3 updateHardware($updateTime, $updateUser, $record)
 
-Updates or creates a new hardware model using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+Updates or creates a new hardware model using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
 
 =head3 deleteHardware($updateTime, $updateUser, $record)
 
-Deletes the hardware model identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+Deletes the hardware model identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head3 hardwareDeviceCount()
+
+Returns a list of references to hashes for each hardware model with the number of devices of that model and total space in U they occupy. See the report_count template and associated rackmonkey.pl code for an example of usage.
+
+=head3 hardwareWithDevice()
+
+Returns a list of references to hashes for each hardware model that has at least one device. Otherwise similar to hardwareListBasic().
+
+=head2 ORG METHODS
+
+=head3 org($org_id)
+
+Returns a reference to a hash for a org identified by $org_id. See the app() method for an example.
+
+=head3 orgList($orderBy)
+
+Returns a reference to a list of all orgs ordered by $orderBy. $orderby is the name of a column in the org table, such as org.id. If an order isn't specified then the orgs are ordered by org.name. See the appList() method for an example.
+
+=head3 manufacturerWithHardwareList()
+
+=head3 updateOrg($updateTime, $updateUser, $record)
+
+Updates or creates a new org using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteOrg($updateTime, $updateUser, $record)
+
+Deletes the org identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head3 customerDeviceCount()
+
+=head3 customerWithDevice()
+
+=head2 OS METHODS
+
+=head2 RACK METHODS
+
+=head2 ROLE METHODS
+
+=head2 ROOM METHODS
+
+=head2 ROW METHODS
+
+Rows are not fully supported in this release. Instead rows are automatically handled by rooms.
+
+=head2 SERVICE METHODS
 
 =head1 BUGS
 
-You can view and report bugs at http://www.rackmonkey.org
+You can view and report bugs at http://www.rackmonkey.org/issues
 
 =head1 LICENSE
 
