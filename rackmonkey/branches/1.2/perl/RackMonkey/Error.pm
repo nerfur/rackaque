@@ -302,7 +302,7 @@ RackMonkey::Error - Creates User-Friendly Error Messages
  eval
  {
      $backend = RackMonkey::Engine->new;
-     # run RackMonkey scripts/modules here
+     # run RackMonkey methods here
  };
  if ($@)
  {
@@ -314,11 +314,11 @@ RackMonkey::Error - Creates User-Friendly Error Messages
 
 =head1 DESCRIPTION
 
-This is draft documentation for RackMonkey::Error. More details will be added in future.
+The RackMonkey::Error helps present error messages to users in a clear and helpful way. It adds user-friendly descriptions to common messages, such as foreign key constraint violations.
 
 =head1 BUGS
 
-You can view and report bugs at http://www.rackmonkey.org
+You can view and report bugs at http://www.rackmonkey.org/issues
 
 =head1 LICENSE
 
