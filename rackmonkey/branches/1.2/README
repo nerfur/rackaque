@@ -2,7 +2,7 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# README for RackMonkey v1.2.5                                               #
+# README for RackMonkey 1.2.5                                                #
 ##############################################################################
 
 You can read the latest version of this document in HTML format at:
@@ -35,7 +35,7 @@ open source (licensed under GPL).
 
 2. New in this Release
 ======================
-v1.2.5 has a number of improvements over v1.2.4. These include:
+1.2.5 has a number of improvements over 1.2.4. These include:
 
 * Many UI Improvements
 * Excel spreadsheet export

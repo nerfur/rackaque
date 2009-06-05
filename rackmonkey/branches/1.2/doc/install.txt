@@ -2,7 +2,7 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# RackMonkey v1.2.5 Install Guide                                            #
+# RackMonkey 1.2.5 Install Guide                                             #
 ##############################################################################
 
 You can read the latest version of this document in HTML format at:
@@ -27,9 +27,9 @@ This document explains how to install RackMonkey for a generic system.
 Platform specific documents may be available for your operating system at 
 http://www.rackmonkey.org/doc/1.2.5.
 
-There are draft installation instructions for Ubuntu available as 
-install-ubuntu.txt, but we recommend production users continue to use these 
-instructions for now.
+There are draft installation instructions for Ubuntu available in 
+doc/install-ubuntu.txt, but we recommend production users continue to use 
+these instructions for now.
 
 This document covers the installation of a new instance of RackMonkey. For
 upgrades you should follow doc/upgrade.txt.
@@ -41,7 +41,7 @@ shell prompt, you should not type them.
 2. System Set Up
 ================
 You need the following in order to install and use RackMonkey. NB. Some of 
-these requirements have been revised since both v1.2.4.
+these requirements have been revised since both 1.2.4.
 
 * Modern web browser. Any reasonably standards-compliant browser should work,
   but the following browsers are officially supported:
@@ -59,7 +59,7 @@ these requirements have been revised since both v1.2.4.
   - MySQL 5.0.22 or higher
       MySQL can be obtained from http://dev.mysql.com/downloads/mysql/
 
-  NB. SQLite is the simplest database to administer. If you aren't an
+  NB. SQLite is the simplest database to administer. If you're not an
   experienced database administrator we recommend you use SQLite.
     
 * Perl 5.61 or higher (5.84 or higher recommended) with the following modules:
@@ -105,9 +105,8 @@ directory with the following layout:
   README      Read this before you start
   perl        Contains the perl scripts and modules
   sql         SQL to create the RackMonkey database
-  t           Test scripts
-  tmpl        HTML::Template files for the web interface
-  www         Web space files, e.g. help, images, CSS files
+  tmpl        Web interface templates
+  www         Web space files: images, CSS and JavaScript
 
 Copy the rackmonkey.pl file and the whole RackMonkey directory from the perl
 directory to a suitable location on your web server (e.g. /rackmonkey) and
