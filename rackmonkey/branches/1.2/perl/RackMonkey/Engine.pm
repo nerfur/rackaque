@@ -2732,27 +2732,90 @@ Returns the number of devices that are not racked as a scalar. For example:
 
 Updates or creates a new device using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
 
-=head3 deleteDevice
+=head3 deleteDevice($updateTime, $updateUser, $record)
 
 Deletes the device identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
 
-=head3 totalSizeDevice
+=head3 totalSizeDevice()
 
 Returns the total size of all devices in U as a scalar. For example:
 
  print "Devices occupy " . $backend->totalSizeDevice . "U.\n";
 
-=head3 duplicateSerials
+=head3 duplicateSerials()
 
 Returns a reference to a list of all devices having duplicate serial numbers. See the report_duplicates template and associated rackmonkey.pl code for an example of usage.
 
-=head3 duplicateAssets
+=head3 duplicateAssets()
 
 Returns a reference to a list of all devices having duplicate asset numbers. See the report_duplicates template and associated rackmonkey.pl code for an example of usage.
 
-=head3 duplicateOSLicenceKey
+=head3 duplicateOSLicenceKey()
 
 Returns a reference to a list of all devices having duplicate OS licence keys. See the report_duplicates template and associated rackmonkey.pl code for an example of usage.
+
+=head2 DOMAIN METHODS
+
+=head3 domain($domain_id)
+
+Returns a reference to a hash for a domain identified by $domain_id. See the app() method for an example.
+
+=head3 domainList($orderBy)
+
+Returns a reference to a list of all domains ordered by $orderBy. $orderby is the name of a column in the domain table, such as domain.id. If an order isn't specified then the domains are ordered by domain.name. See the appList() method for an example.
+
+=head3 updateDomain($updateTime, $updateUser, $record)
+
+Updates or creates a new domain using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteDomain($updateTime, $updateUser, $record)
+
+Deletes the domain identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head2 HARDWARE METHODS
+
+=head3 hardware($hardware_id)
+
+Returns a reference to a hash for a hardware model identified by $hardware_id. See the app() method for an example.
+
+=head3 hardwareList($orderBy)
+
+Returns a reference to a list of all hardware models ordered by $orderBy. $orderby is the name of a column in the hardware table, such as hardware.id. If an order isn't specified then the hardware models are ordered by hardware.name. See the appList() method for an example.
+
+=head3 hardwareListBasic()
+
+Returns a reference to a list of all hardware models with basic information, including the manufacturer. For situations when the full information returned by hardwareList isn't needed.
+
+=head3 hardwareByManufacturer()
+
+Returns a reference to a list of hardware manufacturers, each of which contains a hash that includes a reference to a list of hardware models from that manufacturer. The data structure returned is of form shown below (only some fields are shown for compactness):
+
+ [
+     {
+     'maufacturer_id' => '18', 
+     'maufacturer_name' => 'NetApp' 
+     'models' => [
+         { 
+             'name' => 'FAS3170', 
+             'size' => '6', 
+             'manufacturer' => '18', 
+         }, {...}, ] 
+     },
+     {
+     'maufacturer_id' => '24', 
+     'maufacturer_name' => 'Sun',
+     'models' => [{...}, {...},]
+     },
+     {...},
+ ]
+
+=head3 updateHardware($updateTime, $updateUser, $record)
+
+Updates or creates a new hardware model using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteHardware($updateTime, $updateUser, $record)
+
+Deletes the hardware model identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
 
 =head1 BUGS
 
