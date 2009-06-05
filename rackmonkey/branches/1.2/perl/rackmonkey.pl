@@ -283,8 +283,9 @@ eval {
                 {
                     $template->param('selected_manufacturer'   => $selectedManufacturer);
                     $template->param('selected_hardware_model' => $selectedHardwareModel);
-                    $template->param('manufacturerlist'        => $cgi->selectItem($backend->manufacturerWithHardwareList, 0));               # run selectItem to prefix - on meta_default items, should be separate sub from selectItem
-                    $template->param('modelList'               => $backend->hardwareByManufacturer);                                          # Need to work out how to prefix meta default items with - for this dropdown
+                    # manufacturerlist: run selectItem to prefix - on meta_default items, should be separate sub from selectItem
+                    $template->param('manufacturerlist'        => $cgi->selectItem($backend->manufacturerWithHardwareList, 0));
+                    $template->param('modelList'               => $backend->hardwareByManufacturer); # Todo: Need to add '-' prefix to meta default items
                     $template->param('oslist'                  => $cgi->selectItem($backend->simpleList('os', 1), $selectedOs));
                     $template->param('rolelist'                => $cgi->selectItem($backend->simpleList('role', 1), $selectedRole));
                     $template->param('customerlist'            => $cgi->selectItem($backend->simpleList('customer', 1), $selectedCustomer));
