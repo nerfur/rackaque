@@ -2,7 +2,7 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# RackMonkey v1.2 Developer Guide                                            #
+# RackMonkey 1.2.5 Developer Guide                                           #
 ##############################################################################
 
 You can read the latest version of this document in HTML format at:
@@ -146,7 +146,7 @@ the end of this guide.
 
 4. Storing Custom Information
 =============================
-RackMonkey v1.2.5 includes a custom_info field in the device table. At present
+RackMonkey 1.2.5 includes a custom_info field in the device table. At present
 there isn't an official API to update this, but normal SQL of the following 
 form can be used:
 

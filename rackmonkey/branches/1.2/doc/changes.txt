@@ -8,9 +8,9 @@
 You can read the latest version of this document in HTML format at:
 http://www.rackmonkey.org/doc
 
-v1.2.5 Release Candidate 1 - Released 2009-06-xx
-------------------------------------------------
-* Completed v1.2.5 documentation
+1.2.5 Release Candidate 1 - Released 2009-06-05
+-----------------------------------------------
+* Completed 1.2.5 documentation
 * Returned the Dell query URL to the default config
 * Added meta_default data to default device_app data
 * Added experimental Ubuntu installation instructions
@@ -21,8 +21,8 @@ v1.2.5 Release Candidate 1 - Released 2009-06-xx
 * DNS plugin reports lookup failures in results
 * Several minor bug fixes (see svn log for full details)
 
-v1.2.5 Preview 3 - Released 2009-05-23
---------------------------------------
+1.2.5 Preview 3 - Released 2009-05-23
+-------------------------------------
 * Full support for associating apps with devices
 * New report showing duplicate OS licence keys, serial and asset numbers
 * Changed notes fields in MySQL schema to be of type TEXT (allows more than
@@ -36,8 +36,8 @@ v1.2.5 Preview 3 - Released 2009-05-23
   text data. Not exposed in GUI.
 * The default rack numbering direction is now configurable
 * All delete requests now have a confirmation pop-up
-* Requires DBI v1.45 or higher for all database engines
-* Requires DBD::Pg v1.48 or higher for Postgres
+* Requires DBI 1.45 or higher for all database engines
+* Requires DBD::Pg 1.48 or higher for Postgres
   All database engines now have a tested minimum driver version
 * IE 8 now supported
 * Improved validation of submitted device information
@@ -46,18 +46,18 @@ v1.2.5 Preview 3 - Released 2009-05-23
 * Size of 1U in rack diagrams can now be adjusted in rackmonkey.conf
 * Fixed a bug which prevented plugin URLs appearing in some circumstances
 
-v1.2.5 Preview 2 - Released 2009-04-05
---------------------------------------
+1.2.5 Preview 2 - Released 2009-04-05
+-------------------------------------
 * Added ability to record OS licence key
 * Separated manufacturer and hardware model in device creation/editing
 * Improved database driver checks and reporting
-* Added instructions for upgrading to v1.2.5 from prior releases
+* Added instructions for upgrading to 1.2.5 from prior releases
 * Pod added to perl modules (still work in progress)
 * Fixed a bug with creating/editing rooms
 * Fixed handling of notes fields when truncated
 
-v1.2.5 Preview 1 - Released 2009-03-15
---------------------------------------
+1.2.5 Preview 1 - Released 2009-03-15
+-------------------------------------
 * Many UI Improvements
 * Excel spreadsheet export
 * Print CSS for much better quality printouts
@@ -70,12 +70,12 @@ v1.2.5 Preview 1 - Released 2009-03-15
 * Experimental DNS plugin
 * RackMonkey is five years old today :)
 
-v1.2.4 - Released 2008-07-20
-----------------------------
+1.2.4 - Released 2008-07-20
+---------------------------
 * Minor tweaks to documentation
 
-v1.2.4 RC1 - Released 2008-07-07
---------------------------------
+1.2.4 RC1 - Released 2008-07-07
+-------------------------------
 * Added edit buttons to table views to make editing faster
 * Replaced tick character with checkbox as IE cannot render tick marks
 * Fixed a number of errors in the markup of templates: all pages now validate
@@ -90,8 +90,8 @@ v1.2.4 RC1 - Released 2008-07-07
 * Many documentation improvements
 * Tested on Firefox 3
 
-v1.2.4 Preview 2 - Released 2008-05-18
---------------------------------------
+1.2.4 Preview 2 - Released 2008-05-18
+-------------------------------------
 * Improved install and upgrade documentation (added MySQL instructions)
 * Added age to device search results and asset info to unracked device view
 * Sorting and filtering now work in unracked device view
@@ -112,8 +112,8 @@ v1.2.4 Preview 2 - Released 2008-05-18
 * Fixed a bug in the validation of descriptions for roles and service levels
 * Many other minor bug fixes and improvements
 
-v1.2.4 Preview - Released 2008-05-06
-------------------------------------
+1.2.4 Preview - Released 2008-05-06
+-----------------------------------
 * Improved interface
 * Device search
 * Device and Rack copying
@@ -126,9 +126,9 @@ v1.2.4 Preview - Released 2008-05-06
 * Now checks for supported DBI version when using Postgres
 * Many other minor changes, see the svn log for further information
 
-v1.2.3 - Released 2007-07-25
-----------------------------
-* First beta release of v1.2
+1.2.3 - Released 2007-07-25
+---------------------------
+* First beta release of 1.2
 * Made rack physical view more compact and usable (47U rack fits in 1280x1024)
 * If a user is logged in as guest they can't edit entries (see userdoc.txt)
 * Added querying of Dell server spec and warranty based on service tag
@@ -146,12 +146,12 @@ v1.2.3 - Released 2007-07-25
 * Added check to ensure rack resize doesn't affect rack contents
 * Many other minor changes, see the svn log for further information
 
-v1.2.2-1 - Released 2007-06-22
-------------------------------
-* Fixed issue when using v1.2.2 with Postgres. SQLite users are not affected.
+1.2.2-1 - Released 2007-06-22
+-----------------------------
+* Fixed issue when using 1.2.2 with Postgres. SQLite users are not affected.
 
-v1.2.2 - Released 2007-06-21
-----------------------------
+1.2.2 - Released 2007-06-21
+---------------------------
 * Added support for operating system versions.
 * Added ability to perform basic filtering of devices in default views.
 * Added basic view of unracked devices.
@@ -164,18 +164,18 @@ v1.2.2 - Released 2007-06-21
 * Fixed a bug preventing the creation of 1 U racks.
 * Fixed the location of the 'New' button in device default views in IE 6.
 
-v1.2.1 - Released 2007-05-18
-----------------------------
-First release of v1.2. Complete rewrite with much improved engine and 
+1.2.1 - Released 2007-05-18
+---------------------------
+First release of 1.2. Complete rewrite with much improved engine and 
 features. This release is alpha quality and has a number of issues. See
 the README file for more information.
 
-v1.1-1 - Released 2005-12-04
-----------------------------
+1.1-1 - Released 2005-12-04
+---------------------------
 First full public release, hosted on Soureforge. 
 
-v1.0 - Not officially released
-------------------------------
+1.0 - Not officially released
+-----------------------------
 Initial experimentation with SQLite backend starting in March 2004. The
 exact date of the first code is not known but RackMonkey now celebrates
 its birthday on 15th March. 

@@ -2,7 +2,7 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# RackMonkey v1.2.5 Draft Ubuntu Quick Install Guide                         #
+# RackMonkey 1.2.5 Draft Ubuntu Quick Install Guide                          #
 ##############################################################################
 
 Warning: This procedure is still in a draft state. While it has been tested, 
@@ -64,7 +64,7 @@ any dependancies:
 
 If you want to be able to browse the RackMonkey interface from a web browser 
 on the Ubuntu machine (if you're connecting from a remote machine you don't 
-need to do this) run:
+need to do this) install Firefox:
 
     $ sudo apt-get install firefox
 
@@ -74,14 +74,13 @@ need to do this) run:
 Once you have obtained a copy of RackMonkey (see README) you should have a
 directory with the following layout:
 
-  conf        Includes RackMonkey and Apache configuration files
-  doc         Documentation for RackMonkey
-  README      Read this before you start
-  perl        Contains the perl scripts and modules
-  sql         SQL to create the RackMonkey database
-  t           Test scripts
-  tmpl        HTML::Template files for the web interface
-  www         Web space files, e.g. help, images, CSS files
+    conf        Includes RackMonkey and Apache configuration files
+    doc         Documentation for RackMonkey
+    README      Read this before you start
+    perl        Contains the perl scripts and modules
+    sql         SQL to create the RackMonkey database
+    tmpl        Web interface templates
+    www         Web space files: images, CSS and JavaScript
 
 Make a directory for rackmonkey in web space:
 

@@ -76,7 +76,7 @@ Documentation is still being written.
 
 =head1 BUGS
 
-You can view and report bugs at http://www.rackmonkey.org
+You can view and report bugs at http://www.rackmonkey.org/issues
 
 =head1 LICENSE
 

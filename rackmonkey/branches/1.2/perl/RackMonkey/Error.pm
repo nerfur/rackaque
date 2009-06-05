@@ -23,7 +23,7 @@ sub enlighten
         $newErrStr = "Couldn't open template $1.\nCheck that the template path (tmplpath) in rackmonkey.conf is correct.";
     }
 
-    # SQLite foreign key constraint: delete table names with underscores (this will be fixed in RackMonkey v1.3)
+    # SQLite foreign key constraint: delete table names with underscores (messy: this should be fixed in RackMonkey 1.3)
     elsif ($errStr =~ /violates foreign key constraint "fkd_(.*?_.*?)_(.*?)_id"/)
     {
         my $refItem = $1;
