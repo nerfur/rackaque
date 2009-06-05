@@ -2545,32 +2545,32 @@ A database with a suitable schema and a configuration file are required to use t
 
 Data structures are generally references to hashes or lists of hashes. For example an operating system record returned by the os method looks like this:
 
- $VAR1 = {
-           'meta_update_user' => 'install',
-           'name' => 'Red Hat Enterprise Linux',
-           'manufacturer_meta_default_data' => '0',
-           'meta_default_data' => '0',
-           'manufacturer' => '22',
-           'notes' => '',
-           'id' => '17',
-           'meta_update_time' => '1985-07-24 00:00:00',
-           'manufacturer_name' => 'Red Hat'
-         };
+ {
+   'meta_update_user' => 'install',
+   'name' => 'Red Hat Enterprise Linux',
+   'manufacturer_meta_default_data' => '0',
+   'meta_default_data' => '0',
+   'manufacturer' => '22',
+   'notes' => '',
+   'id' => '17',
+   'meta_update_time' => '1985-07-24 00:00:00',
+   'manufacturer_name' => 'Red Hat'
+ };
 
 And the data returned by simpleList('service') would look like this:
 
- $VAR1 = [
-           {
-             'name' => '24/7',
-             'id' => '4',
-             'meta_default_data' => '0'
-           },
-           {
-             'name' => 'Basic',
-             'id' => '3',
-             'meta_default_data' => '0'
-           }
-         ];
+ [
+    {
+        'name' => '24/7',
+        'id' => '4',
+        'meta_default_data' => '0'
+    },
+    {
+        'name' => 'Basic',
+        'id' => '3',
+        'meta_default_data' => '0'
+    }
+ ];
 
 All data structures contain a unique 'id' field that can used to identify a particular instance of a given item (device, operating system etc.).
 
@@ -2610,14 +2610,14 @@ Returns a config value given its key. Check RackMonkey::Conf for the available c
 
 =head3 simpleItem($id, $table)
 
-Returns the name and id of an item given its id and table.
+Returns the name and id of an item given its id and type (table it resides in).
 
  my $device = $backend->simpleItem(1, 'device');
  print "device id=".$$device{'id'}." is called: ".$$device{'name'};
 
-=head3 simpleList($table, $all)
+=head3 simpleList($type, $all)
 
-Returns a list of items of a given type, optionally including meta default items if $all is true. Only the name, id and the meta_default_data value of the items is returned. To get more information use the item specific methods (deviceList, orgList etc.).
+Returns a list of items of a given $type, optionally including meta default items if $all is true. Only the name, id and the meta_default_data value of the items is returned. To get more information use the item specific methods (deviceList, orgList etc.).
  
  # without meta default items
  my $buildings = $backend->simpleList('building');
@@ -2819,11 +2819,11 @@ Deletes the hardware model identified by id, either stored as $$record{'id'} or 
 
 =head3 hardwareDeviceCount()
 
-Returns a list of references to hashes for each hardware model with the number of devices of that model and total space in U they occupy. See the report_count template and associated rackmonkey.pl code for an example of usage.
+Returns a reference to a list of hardware models with the number of devices of that model and total space in U they occupy. See the report_count template and associated rackmonkey.pl code for an example of usage.
 
 =head3 hardwareWithDevice()
 
-Returns a list of references to hashes for each hardware model that has at least one device. Otherwise similar to hardwareListBasic().
+Returns a reference to a list of hardware models that has at least one device. Otherwise similar to hardwareListBasic().
 
 =head2 ORG METHODS
 
@@ -2837,6 +2837,8 @@ Returns a reference to a list of all orgs ordered by $orderBy. $orderby is the n
 
 =head3 manufacturerWithHardwareList()
 
+Returns a reference to a list of manufactuers that has at least one hardware model.
+
 =head3 updateOrg($updateTime, $updateUser, $record)
 
 Updates or creates a new org using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
@@ -2847,11 +2849,71 @@ Deletes the org identified by id, either stored as $$record{'id'} or directly as
 
 =head3 customerDeviceCount()
 
+Returns a reference to a list of customers with the number of devices with that customer and total space in U they occupy. See the report_count template and associated rackmonkey.pl code for an example of usage.
+
 =head3 customerWithDevice()
+
+Returns a reference to a list of customers that has at least one device.
 
 =head2 OS METHODS
 
+=head3 os($os_id)
+
+Returns a reference to a hash for a OS identified by $os_id. See the app() method for an example.
+
+=head3 osList($orderBy)
+
+Returns a reference to a list of all OS ordered by $orderBy. $orderby is the name of a column in the OS table, such as os.id. If an order isn't specified then the OS are ordered by os.name. See the appList() method for an example.
+
+=head3 updateOs($updateTime, $updateUser, $record)
+
+Updates or creates a new OS using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteOs($updateTime, $updateUser, $record)
+
+Deletes the OS identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head3 osDeviceCount
+
+Returns a references to a list of OS with the number of devices using that OS and total space in U they occupy. See the report_count template and associated rackmonkey.pl code for an example of usage.
+
+=head3 osWithDevice
+
+Returns a reference to a list of OS that have at least one device using them.
+
 =head2 RACK METHODS
+
+=head3 rack($rack_id)
+
+Returns a reference to a hash for a rack identified by $rack_id. See the app() method for an example.
+
+=head3 rackList($orderBy)
+
+Returns a reference to a list of all racks ordered by $orderBy. $orderby is the name of a column in the rack table, such as rack.id. If an order isn't specified then the racks are ordered by rack.name. See the appList() method for an example.
+
+=head3 rackListInRoom($room_id)
+
+Returns a reference to a list of all racks within the room identified by $room_id.
+
+=head3 rackListBasic()
+
+Returns a reference to a list of all racks with basic information, including the room. For situations when the full information returned by rackList() isn't needed.
+
+=head3 rackPhysical($rack_id, [$selectDev], [$tableFormat])
+
+Returns a list of all the devices in a rack, optionally in table format if $tableFormat is true (useful for creating HTML tables and similar) and with device with the id $selectDev selected. See the rack_physical templates and associated rackmonkey.pl code for an example of usage.
+
+=head3 updateRack($updateTime, $updateUser, $record)
+
+Updates or creates a new rack using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteRack($updateTime, $updateUser, $record)
+
+Deletes the rack identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head3 totalSizeRack()
+
+Returns a scalar with the total size in U of all racks.
 
 =head2 ROLE METHODS
 
