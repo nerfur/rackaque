@@ -2541,9 +2541,38 @@ This module abstracts a DBI database for use by RackMonkey applications. Data ca
 
 A database with a suitable schema and a configuration file are required to use the engine. Both of these are supplied with the RackMonkey distribution. Please consult the RackMonkey install document and RackMonkey::Conf module for details.
 
+=head1 TYPES
+
+To work with RackMonkey data it's important to have a clear understanding of how the various types relate to each other:
+
+=over 4
+
+=item *
+
+Servers, routers, switches etc. are devices and are contained within racks.
+
+=item *
+
+A device has a hardware model and an operating system.
+
+=item *
+
+A device optionally has a domain (such as rackmonkey.org), a role (such as database server), a customer and a service level.
+
+=item *
+
+Apps run on devices.
+
+=item *
+
+Racks are organised in rows which reside in rooms within buildings.
+
+=back
+
+
 =head1 DATA STRUCTURES
 
-Data structures are generally references to hashes or lists of hashes. For example an operating system record returned by the os method looks like this:
+RackMonkey data isn't object-oriented because the data structures returned by DBI are usable straight away in HTML::Template and relatively little processing of the returned data goes on. This decision may be reviewed in future. Data structures are generally references to hashes or lists of hashes. An example an operating system record returned by the os method looks like this:
 
  {
    'meta_update_user' => 'install',
@@ -2825,7 +2854,7 @@ Returns a reference to a list of hardware models with the number of devices of t
 
 Returns a reference to a list of hardware models that has at least one device. Otherwise similar to hardwareListBasic().
 
-=head2 ORG METHODS
+=head2 ORGANISATION (ORG) METHODS
 
 =head3 org($org_id)
 
@@ -2855,7 +2884,7 @@ Returns a reference to a list of customers with the number of devices with that 
 
 Returns a reference to a list of customers that has at least one device.
 
-=head2 OS METHODS
+=head2 OPERATING SYSTEM (OS) METHODS
 
 =head3 os($os_id)
 
@@ -2917,13 +2946,73 @@ Returns a scalar with the total size in U of all racks.
 
 =head2 ROLE METHODS
 
+=head3 role($role_id)
+
+Returns a reference to a hash for a role identified by $role_id. See the app() method for an example.
+
+=head3 roleList($orderBy)
+
+Returns a reference to a list of all role ordered by $orderBy. $orderby is the name of a column in the role table, such as role.id. If an order isn't specified then the roles are ordered by role.name. See the appList() method for an example.
+
+=head3 updateRole($updateTime, $updateUser, $record)
+
+Updates or creates a new role using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteRole($updateTime, $updateUser, $record)
+
+Deletes the role identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head3 roleDeviceCount
+
+Returns a references to a list of roles with the number of devices in that role and total space in U they occupy. See the report_count template and associated rackmonkey.pl code for an example of usage.
+
+=head3 roleWithDevice
+
+Returns a reference to a list of roles that have at least one device in that role.
+
 =head2 ROOM METHODS
+
+=head3 room($room_id)
+
+Returns a reference to a hash for a room identified by $room_id. See the app() method for an example.
+
+=head3 roomList($orderBy)
+
+Returns a reference to a list of all rooms ordered by $orderBy. $orderby is the name of a column in the room table, such as room.id. If an order isn't specified then the rooms are ordered by room.name within each building. See the appList() method for an example.
+
+=head3 updateRoom($updateTime, $updateUser, $record)
+
+Updates or creates a new room using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteRoom($updateTime, $updateUser, $record)
+
+Deletes the room identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
+
+=head3 roomListInBuilding($building_id)
+
+Returns a reference to a list of all rooms within the building identified by $building_id.
 
 =head2 ROW METHODS
 
 Rows are not fully supported in this release. Instead rows are automatically handled by rooms.
 
-=head2 SERVICE METHODS
+=head2 SERVICE LEVEL METHODS
+
+=head3 service($service_id)
+
+Returns a reference to a hash for a service level identified by $service_id. See the app() method for an example.
+
+=head3 serviceList($orderBy)
+
+Returns a reference to a list of all service levels ordered by $orderBy. $orderby is the name of a column in the service table, such as service.id. If an order isn't specified then the service levels are ordered by service.name. See the appList() method for an example.
+
+=head3 updateService($updateTime, $updateUser, $record)
+
+Updates or creates a new service level using the reference to the hash $record, the user $updateUser and the time/date $updateTime. Returns the unique id for the item created or updated as a scalar. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the updateApp() method for an example.
+
+=head3 deleteService($updateTime, $updateUser, $record)
+
+Deletes the service level identified by id, either stored as $$record{'id'} or directly as $record. $updateUser and updateTime are currently ignored by this method. This method can be called directly, but you may prefer to use performAct() as it automatically handles updating the RackMonkey log, setting the time etc. See the deleteApp() method for an example.
 
 =head1 BUGS
 
