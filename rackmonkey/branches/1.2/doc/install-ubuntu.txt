@@ -2,12 +2,8 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# RackMonkey 1.2.5 Draft Ubuntu Quick Install Guide                          #
+# RackMonkey 1.2.5 Ubuntu Quick Install Guide                                #
 ##############################################################################
-
-Warning: This procedure is still in a draft state. While it has been tested, 
-we recommend users installing production systems continue to use the generic 
-installation instructions: install.txt.
 
 Contents
 ========
@@ -32,8 +28,8 @@ please consult the generic installation instructions: doc/install.txt.
 This document covers the installation of a new instance of RackMonkey. For
 upgrades you should follow doc/upgrade.txt.
 
-Please note that the $ and # shown at the start of commands represent the 
-shell prompt, you should not type them.
+Please note that the $ shown at the start of commands represent the shell
+prompt, you should not type it.
 
 2. System Set Up
 ================
@@ -45,7 +41,7 @@ officially supported:
 
  - Firefox 2, 3
  - Internet Explorer 6, 7, 8
- - Safari 2, 3
+ - Safari 2, 3, 4
  
  
 Installing Required Packages
@@ -156,5 +152,26 @@ If you get an error, check out doc/troubleshooting.txt and README for advice.
 
 8. RackMonkey Plugins: Excel and DNS
 ====================================
-Ubuntu-specific instructions have yet to be written. See install.txt for
-general instructions.
+The Excel export and DNS query plugins are optional. To use them you need to 
+install two additional perl module packages:
+
+    $ sudo apt-get install libspreadsheet-writeexcel-perl
+    $ sudo apt-get install libnet-dns-perl
+    
+Then copy the plugins into place and make executable:
+
+    $ sudo cp rackmonkey-1.2.5/perl/rack2xls.pl /var/www/rackmonkey
+    $ sudo cp rackmonkey-1.2.5/perl/rackdns.pl /var/www/rackmonkey
+    $ sudo chmod 755 /var/www/rackmonkey/rack2xls.pl
+    $ sudo chmod 755 /var/www/rackmonkey/rackdns.pl
+
+Finally you need to enable the plugins by uncommenting the relevant lines in 
+/etc/rackmonkey.conf as follows (remove the # from the start of the lines):
+
+    plugin_xls = rack2xls.pl
+    plugin_dns = rackdns.pl
+
+You should now find an 'Export XLS' button at the top of the device table 
+views and a 'Query DNS...' link next to the device name in single device  
+view. To see the single device view simply click on the name of a device in 
+the rack or device table views.
