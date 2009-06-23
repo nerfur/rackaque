@@ -47,7 +47,7 @@ these requirements have been revised since both 1.2.4.
   but the following browsers are officially supported:
  - Firefox 2, 3
  - Internet Explorer 6, 7, 8
- - Safari 2, 3
+ - Safari 2, 3, 4
 
 * Web server. Apache 2 is recommended.
 
@@ -445,7 +445,7 @@ module. If you're not sure how to do this see section 2 of this document.
 To enable the plugin, copy rack2xls.pl into the same directory as 
 rackmonkey.pl, make sure it's executable (chmod 755 usually does the trick)
 then uncomment the plugin_xls line in the RackMonkey configuration. You should 
-then find an 'Export XLS' button at the top of the device table views.
+now find an 'Export XLS' button at the top of the device table views.
 
 
 DNS Queries: rackdns.pl
@@ -459,6 +459,6 @@ sure how to do this see section 2 of this document.
 To enable the plugin, copy rackdns.pl into the same directory as 
 rackmonkey.pl, make sure it's executable (chmod 755 usually does the trick)
 then uncomment the plugin_dns line in the RackMonkey configuration. You should 
-then find a 'Query DNS...' link next to the device name in single device  
+now find a 'Query DNS...' link next to the device name in single device  
 view. To see the single device view simply click on the name of a device in 
 the rack or device table views.
