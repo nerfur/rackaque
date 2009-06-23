@@ -31,10 +31,13 @@ upgrades you should follow doc/upgrade.txt.
 Please note that the $ shown at the start of commands represent the shell
 prompt, you should not type it.
 
+
 2. System Set Up
 ================
-Ubuntu includes packages for all the software you need to run RackMonkey. If 
-you're connecting to your RackMonkey instance from another machine then you 
+Ubuntu includes packages for all the software you need to run RackMonkey. 
+
+REWRITE
+If you're connecting to your RackMonkey instance from another machine then you 
 should make sure your web browser is compatible. Any reasonably 
 standards-compliant browser should work, but the following browsers are 
 officially supported:
@@ -42,6 +45,7 @@ officially supported:
  - Firefox 2, 3
  - Internet Explorer 6, 7, 8
  - Safari 2, 3, 4
+END-REWRITE
  
  
 Installing Required Packages
@@ -153,7 +157,8 @@ If you get an error, check out doc/troubleshooting.txt and README for advice.
 8. RackMonkey Plugins: Excel and DNS
 ====================================
 The Excel export and DNS query plugins are optional. To use them you need to 
-install two additional perl module packages:
+install two additional perl module packages (say yes to the installation of 
+any dependancies if prompted):
 
     $ sudo apt-get install libspreadsheet-writeexcel-perl
     $ sudo apt-get install libnet-dns-perl
