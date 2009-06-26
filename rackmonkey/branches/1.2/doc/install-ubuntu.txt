@@ -2,7 +2,7 @@
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
 # (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
-# RackMonkey 1.2.5 Ubuntu Quick Install Guide                                #
+# RackMonkey 1.2.5 Debian/Ubuntu Install Guide                               #
 ##############################################################################
 
 Contents
@@ -19,55 +19,44 @@ Contents
 
 1. Introduction  
 ===============
-This document explains how to install RackMonkey for Ubuntu 8.04 or higher. 
-These instructions have undergone basic testing with Ubuntu Server 8.04 LTS 
-and Ubuntu Desktop 8.10 and are expected to work with 9.04. These instructions
-use SQLite for the database engine, if you wish to use a different database,
-please consult the generic installation instructions: doc/install.txt. 
+This document explains how to perform a fresh install RackMonkey using SQLite 
+for Debian and Ubuntu. If you wish to use a different database, please consult 
+the generic installation instructions: doc/install.txt. This document covers 
+the installation of a new instance of RackMonkey. For upgrades you should 
+follow doc/upgrade.txt.
 
-This document covers the installation of a new instance of RackMonkey. For
-upgrades you should follow doc/upgrade.txt.
+The following versions have been tested (all tests were on x86-64/amd64):
 
+ * Debian 5.0 (lenny)
+ * Ubuntu 8.04 LTS (Hardy Heron)
+ * Ubuntu 8.10 (Intrepid Ibex)
+ * Ubuntu 9.04 (Jaunty Jackalope)
+
+You need a web browser to access the RackMonkey interface. Any reasonably 
+standards-compliant browser should work, but the following browsers are 
+officially supported:
+
+ * Firefox 2, 3
+ * Internet Explorer 6, 7, 8
+ * Safari 2, 3, 4
+ 
 Please note that the $ shown at the start of commands represent the shell
 prompt, you should not type it.
 
 
 2. System Set Up
 ================
-Ubuntu includes packages for all the software you need to run RackMonkey. 
+Debian and Ubuntu includes packages for all the software you need to run
+RackMonkey. Run the following commands from a terminal and say yes to the 
+installation of any dependancies:
 
-REWRITE
-If you're connecting to your RackMonkey instance from another machine then you 
-should make sure your web browser is compatible. Any reasonably 
-standards-compliant browser should work, but the following browsers are 
-officially supported:
-
- - Firefox 2, 3
- - Internet Explorer 6, 7, 8
- - Safari 2, 3, 4
-END-REWRITE
- 
- 
-Installing Required Packages
-----------------------------
-Ubuntu's package system makes it easy to install all the required components. 
-Run the following commands from a terminal and say yes to the installation of 
-any dependancies:
-
-    $ sudo apt-get install apache2
-    $ sudo apt-get install sqlite3
-    $ sudo apt-get install perl
-    $ sudo apt-get install libdbi-perl
-    $ sudo apt-get install libdbd-sqlite3-perl
-    $ sudo apt-get install libhtml-template-perl
-    $ sudo apt-get install libhtml-parser-perl
-
-If you want to be able to browse the RackMonkey interface from a web browser 
-on the Ubuntu machine (if you're connecting from a remote machine you don't 
-need to do this) install Firefox:
-
-    $ sudo apt-get install firefox
-
+    $ apt-get install apache2
+    $ apt-get install sqlite3
+    $ apt-get install libdbi-perl
+    $ apt-get install libdbd-sqlite3-perl
+    $ apt-get install libhtml-template-perl
+    $ apt-get install libhtml-parser-perl
+    
 
 3. Installing RackMonkey
 ========================
@@ -84,42 +73,42 @@ directory with the following layout:
 
 Make a directory for rackmonkey in web space:
 
-    $ sudo mkdir /var/www/rackmonkey
+    $ mkdir /var/www/rackmonkey
 
 Copy the rackmonkey.pl file and the whole RackMonkey directory from the perl
 directory to your new rackmonkey directory and make it executable:
 
-    $ sudo cp rackmonkey-1.2.5/perl/rackmonkey.pl /var/www/rackmonkey
-    $ sudo cp -r rackmonkey-1.2.5/perl/RackMonkey /var/www/rackmonkey
-    $ sudo chmod 755 /var/www/rackmonkey/rackmonkey.pl
+    $ cp rackmonkey-1.2.5/perl/rackmonkey.pl /var/www/rackmonkey
+    $ cp -r rackmonkey-1.2.5/perl/RackMonkey /var/www/rackmonkey
+    $ chmod 755 /var/www/rackmonkey/rackmonkey.pl
 
 Copy the RackMonkey web content into the web directory:
 
-    $ sudo cp -r rackmonkey-1.2.5/www/* /var/www/rackmonkey
+    $ cp -r rackmonkey-1.2.5/www/* /var/www/rackmonkey
 
 Make a directory for template and data content:
 
-    $ sudo mkdir /var/lib/rackmonkey
-    $ sudo chown www-data:www-data /var/lib/rackmonkey
+    $ mkdir /var/lib/rackmonkey
+    $ chown www-data:www-data /var/lib/rackmonkey
 
 Copy the templates into the directory:
 
-    $ sudo cp -r rackmonkey-1.2.5/tmpl /var/lib/rackmonkey
+    $ cp -r rackmonkey-1.2.5/tmpl /var/lib/rackmonkey
     
 
 4. Configuring the Web Server
 =============================
-Copy the apache configuration into place and restart the web server:
+Copy the apache configuration into place and reload the web server:
 
-    $ sudo cp rackmonkey-1.2.5/conf/httpd-rackmonkey.conf /etc/apache2/conf.d 
-    $ sudo /etc/init.d/apache2 force-reload
+    $ cp rackmonkey-1.2.5/conf/httpd-rackmonkey.conf /etc/apache2/conf.d 
+    $ /etc/init.d/apache2 force-reload
 
 
 5. Configuring RackMonkey
 =========================
 Copy the default configuration file into /etc:
 
-    $ sudo cp rackmonkey-1.2.5/conf/rackmonkey.conf-default /etc/rackmonkey.conf
+    $ cp rackmonkey-1.2.5/conf/rackmonkey.conf-default /etc/rackmonkey.conf
 
 Amend /etc/rackmonkey.conf as follows:
 
@@ -132,13 +121,13 @@ Amend /etc/rackmonkey.conf as follows:
 ==================
 Set up the schema and data:
 
-    $ sudo sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/schema/schema.sqlite.sql
-    $ sudo sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/default_data.sql
-    $ sudo sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/sample_data.sql
+    $ sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/schema/schema.sqlite.sql
+    $ sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/default_data.sql
+    $ sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/sample_data.sql
 
 Change the owner of the database to be that of the web server:
 
-    $ sudo chown www-data:www-data /var/lib/rackmonkey/rackmonkey.db
+    $ chown www-data:www-data /var/lib/rackmonkey/rackmonkey.db
 
 
 7. Running RackMonkey
@@ -160,15 +149,15 @@ The Excel export and DNS query plugins are optional. To use them you need to
 install two additional perl module packages (say yes to the installation of 
 any dependancies if prompted):
 
-    $ sudo apt-get install libspreadsheet-writeexcel-perl
-    $ sudo apt-get install libnet-dns-perl
+    $ apt-get install libspreadsheet-writeexcel-perl
+    $ apt-get install libnet-dns-perl
     
 Then copy the plugins into place and make executable:
 
-    $ sudo cp rackmonkey-1.2.5/perl/rack2xls.pl /var/www/rackmonkey
-    $ sudo cp rackmonkey-1.2.5/perl/rackdns.pl /var/www/rackmonkey
-    $ sudo chmod 755 /var/www/rackmonkey/rack2xls.pl
-    $ sudo chmod 755 /var/www/rackmonkey/rackdns.pl
+    $ cp rackmonkey-1.2.5/perl/rack2xls.pl /var/www/rackmonkey
+    $ cp rackmonkey-1.2.5/perl/rackdns.pl /var/www/rackmonkey
+    $ chmod 755 /var/www/rackmonkey/rack2xls.pl
+    $ chmod 755 /var/www/rackmonkey/rackdns.pl
 
 Finally you need to enable the plugins by uncommenting the relevant lines in 
 /etc/rackmonkey.conf as follows (remove the # from the start of the lines):
