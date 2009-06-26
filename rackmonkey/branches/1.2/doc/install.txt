@@ -24,30 +24,32 @@ Contents
 1. Introduction  
 ===============
 This document explains how to install RackMonkey for a generic system. 
-Platform specific documents may be available for your operating system at 
-http://www.rackmonkey.org/doc/1.2.5.
 
-There are draft installation instructions for Ubuntu available in 
-doc/install-ubuntu.txt, but we recommend production users continue to use 
-these instructions for now.
+Platform specific installation instructions are included for some operating
+systems. Please refer to the following documents if appropriate:
+
+* Debian/Ubuntu:        doc/install-debian-ubuntu.txt
+* RHEL/CentOS/Fedora:   doc/install-redhat.txt
 
 This document covers the installation of a new instance of RackMonkey. For
 upgrades you should follow doc/upgrade.txt.
 
-Please note that the $ and # shown at the start of commands represent the 
-shell prompt, you should not type them.
+You need a web browser to access the RackMonkey interface. Any reasonably 
+standards-compliant browser should work, but the following browsers are 
+officially supported:
+
+ * Firefox 2, 3
+ * Internet Explorer 6, 7, 8
+ * Safari 2, 3, 4
+ 
+Please note that the $ shown at the start of commands represent the shell
+prompt, you should not type it.
 
 
 2. System Set Up
 ================
-You need the following in order to install and use RackMonkey. NB. Some of 
-these requirements have been revised since both 1.2.4.
-
-* Modern web browser. Any reasonably standards-compliant browser should work,
-  but the following browsers are officially supported:
- - Firefox 2, 3
- - Internet Explorer 6, 7, 8
- - Safari 2, 3, 4
+You need the following in order to install and use RackMonkey. Some of these
+requirements have been revised since both 1.2.4.
 
 * Web server. Apache 2 is recommended.
 
@@ -74,7 +76,7 @@ these requirements have been revised since both 1.2.4.
 The easiest way to install modules is usually with the CPAN shell. You
 generally need to be root in order to do this. 
 
-    # perl -eshell -MCPAN
+   $ perl -eshell -MCPAN
     
 On Mac OS X or Ubuntu Linux you can use sudo to temporarily become root (enter 
 your usual administrator password when prompted):
@@ -148,24 +150,18 @@ reread its configuration.
 
 On Debian and Ubuntu:
 
-    # /etc/init.d/apache2 force-reload
+    $ /etc/init.d/apache2 force-reload
 
 On Red Hat based Linux systems (including Fedora, RHEL and CentOS):
 
-    # service httpd reload
-    
-    
+    $ service httpd reload
+
 Mac OS X 10.5 (Leopard)
 -----------------------
-Open a terminal and become root with:
+Open a terminal and use sudo to copy the configuration and reload apache:
 
-    $ sudo bash
-
-Copy conf/httpd-rackmonkey.conf into /private/etc/apache2/other/ and reload
-apache configuration with:
-
-    # apachectl graceful
-
+    $ sudo cp conf/httpd-rackmonkey.conf /private/etc/apache2/other 
+    $ sudo apachectl graceful
 
 NetBSD
 ------
@@ -176,8 +172,7 @@ following line to the bottom of /usr/local/etc/apache/httpd.conf
     
 Then reload apache configuration with:
 
-    # /etc/rc.d/apache reload
-    
+    $ /etc/rc.d/apache reload
     
 Other Operating Systems
 -----------------------
@@ -191,7 +186,7 @@ Replacing <path> with wherever you put httpd-rackmonkey.conf.
 
 You can then get apache to reload its configuration using:
 
-    # apachectl graceful
+    $ apachectl graceful
     
 Or, if you don't have apachectrl available, by sending using kill -HUP on the 
 apache parent process.
@@ -199,8 +194,20 @@ apache parent process.
 If you're having difficulty locating Apache configuration information you may 
 find http://wiki.apache.org/httpd/DistrosDefaultLayout helpful.
 
-For other web servers you should consult your server documentation on running 
-CGI applications.
+Using .htaccess
+---------------
+If you can't alter the apache configuration directly you can set the
+RackMonkey configuration location by adding the following to an .htaccess file
+in the directory containing rackmonkey.pl:
+
+    SetEnv RACKMONKEY_CONF /<path>/rackmonkey.conf
+
+If you can't get this to work you should speak to your apache administrator.
+
+Other Web Servers
+-----------------
+For web servers other than Apache you should consult your server documentation 
+on running CGI applications.
 
 
 5. Configuring RackMonkey
@@ -247,7 +254,6 @@ in /var/www/html/rackmonkey and your web root is /var/www/html you would use:
 
 You now need to configure RackMonkey to connect to your database.
 
-
 For SQLite
 ----------
 When using SQLite you need to choose a filesystem path for your database, for
@@ -259,7 +265,6 @@ NB. This path must be writable by the web server and should not be within
 web space, or users will be able to download your database. As we're using
 SQLite you can leave the DBUSER and DBPASS values blank. Make sure the
 'SQLite' in the dbconnect string is in the case shown.
-
 
 For Postgres
 ------------
@@ -287,7 +292,6 @@ database is on db1.example.com port 9000:
 You can also connect to a local database on another port:
 
     dbconnect = dbi:Pg:dbname=rackmonkey;port=9000
-
 
 For MySQL
 ---------
@@ -319,14 +323,12 @@ You can also connect to a local database on another port:
 
     dbconnect = dbi:mysql:dbname=rackmonkey;port=9000
 
-
 Rack Numbering Direction
 ------------------------
 By default RackMonkey numbers racks from the bottom (unit 1 is nearest the 
 floor). If your racks are mostly numbered from the top, you should set the 
 value of 'number_from_top' to 1. Don't worry, you can still override this on a 
 rack-by-rack basis.
-
 
 6. Database Set Up
 ==================
@@ -352,14 +354,13 @@ under.
 For further information on administering SQLite see:
 http://www.sqlite.org/docs.html
 
-
 For Postgres
 ------------
 Using the values you set in section 5 you can create your RackMonkey user
 and database. Assuming you called both your user and database 'rackmonkey'
 you run (entering your chosen password when prompted):
 
-    # su - postgres
+    $ su - postgres
 
     $ createuser --pwprompt
     Enter name of role to add: rackmonkey
@@ -383,7 +384,6 @@ default data (assumes your database and user are called rackmonkey):
 For further information on administering Postgres see:
 http://www.postgresql.org/docs/.
     
-
 For MySQL
 ------------
 Connect to your MySQL instance as a user with admin powers. Then create the 
@@ -446,7 +446,6 @@ To enable the plugin, copy rack2xls.pl into the same directory as
 rackmonkey.pl, make sure it's executable (chmod 755 usually does the trick)
 then uncomment the plugin_xls line in the RackMonkey configuration. You should 
 now find an 'Export XLS' button at the top of the device table views.
-
 
 DNS Queries: rackdns.pl
 -----------------------
