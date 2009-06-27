@@ -5,6 +5,10 @@
 # RackMonkey 1.2.5 Debian/Ubuntu Install Guide                               #
 ##############################################################################
 
+You can read the latest version of this document in HTML format at:
+http://www.rackmonkey.org/doc/1.2.5
+
+
 Contents
 ========
 1. Introduction  
@@ -19,13 +23,12 @@ Contents
 
 1. Introduction  
 ===============
-This document explains how to perform a fresh install RackMonkey using SQLite 
-for Debian and Ubuntu. If you wish to use a different database, please consult 
-the generic installation instructions: doc/install.txt. This document covers 
-the installation of a new instance of RackMonkey. For upgrades you should 
-follow doc/upgrade.txt.
+This document explains how to perform a fresh install of RackMonkey with 
+SQLite on Debian or Ubuntu. If you wish to use a different database, please 
+consult the generic installation instructions: doc/install.txt. For upgrades 
+you should follow doc/upgrade.txt.
 
-The following versions have been tested (all tests were on x86-64/amd64):
+The following OS releases have been tested (all tests were on x86-64/amd64):
 
  * Debian 5.0 (lenny)
  * Ubuntu 8.04 LTS (Hardy Heron)
@@ -46,7 +49,7 @@ prompt, you should not type it.
 
 2. System Set Up
 ================
-Debian and Ubuntu includes packages for all the software you need to run
+Debian and Ubuntu include packages for all the software you need to run
 RackMonkey. Run the following commands from a terminal and say yes to the 
 installation of any dependancies:
 
@@ -63,10 +66,10 @@ installation of any dependancies:
 Once you have obtained a copy of RackMonkey (see README) you should have a
 directory with the following layout:
 
-    conf        Includes RackMonkey and Apache configuration files
+    conf        RackMonkey and Apache configuration files
     doc         Documentation for RackMonkey
-    README      Read this before you start
-    perl        Contains the perl scripts and modules
+    perl        Perl scripts and modules
+    README      Read this first
     sql         SQL to create the RackMonkey database
     tmpl        Web interface templates
     www         Web space files: images, CSS and JavaScript
@@ -75,14 +78,15 @@ Make a directory for rackmonkey in web space:
 
     $ mkdir /var/www/rackmonkey
 
-Copy the rackmonkey.pl file and the whole RackMonkey directory from the perl
-directory to your new rackmonkey directory and make it executable:
+Copy the rackmonkey.pl file and the whole perl/RackMonkey directory to your
+new web directory and make the script executable:
 
     $ cp rackmonkey-1.2.5/perl/rackmonkey.pl /var/www/rackmonkey
     $ cp -r rackmonkey-1.2.5/perl/RackMonkey /var/www/rackmonkey
     $ chmod 755 /var/www/rackmonkey/rackmonkey.pl
 
-Copy the RackMonkey web content into the web directory:
+Copy the RackMonkey web content into the web directory (note the * in the 
+following command):
 
     $ cp -r rackmonkey-1.2.5/www/* /var/www/rackmonkey
 
@@ -98,7 +102,7 @@ Copy the templates into the directory:
 
 4. Configuring the Web Server
 =============================
-Copy the apache configuration into place and reload the web server:
+Copy the Apache configuration into place and reload the web server:
 
     $ cp rackmonkey-1.2.5/conf/httpd-rackmonkey.conf /etc/apache2/conf.d 
     $ /etc/init.d/apache2 force-reload
@@ -125,7 +129,7 @@ Set up the schema and data:
     $ sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/default_data.sql
     $ sqlite3 /var/lib/rackmonkey/rackmonkey.db < rackmonkey-1.2.5/sql/data/sample_data.sql
 
-Change the owner of the database to be that of the web server:
+Change the owner and group of the database to be that of the web server:
 
     $ chown www-data:www-data /var/lib/rackmonkey/rackmonkey.db
 

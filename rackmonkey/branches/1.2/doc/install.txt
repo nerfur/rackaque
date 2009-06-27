@@ -102,13 +102,13 @@ Then install the database driver for the database you're using:
 Once you have obtained a copy of RackMonkey (see README) you should have a
 directory with the following layout:
 
-  conf        Includes RackMonkey and Apache configuration files
-  doc         Documentation for RackMonkey
-  README      Read this before you start
-  perl        Contains the perl scripts and modules
-  sql         SQL to create the RackMonkey database
-  tmpl        Web interface templates
-  www         Web space files: images, CSS and JavaScript
+    conf        RackMonkey and Apache configuration files
+    doc         Documentation for RackMonkey
+    perl        Perl scripts and modules
+    README      Read this first
+    sql         SQL to create the RackMonkey database
+    tmpl        Web interface templates
+    www         Web space files: images, CSS and JavaScript
 
 Copy the rackmonkey.pl file and the whole RackMonkey directory from the perl
 directory to a suitable location on your web server (e.g. /rackmonkey) and
