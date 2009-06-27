@@ -145,8 +145,8 @@ snippet in your Apache configuration as follows.
 Linux
 -----
 On most Linux distributions you can configure Apache by copying
-conf/httpd-rackmonkey.conf into /etc/apache2/conf.d and getting Apache to 
-reread its configuration. 
+conf/httpd-rackmonkey.conf into /etc/apache2/conf.d or /etc/httpd/conf.d and 
+getting Apache to reread its configuration. 
 
 On Debian and Ubuntu:
 
