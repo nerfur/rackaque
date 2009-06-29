@@ -68,7 +68,7 @@ requirements have been revised since both 1.2.4.
   - DBI 1.45 or higher
   - CGI
   - HTML::Template and HTML::Entities  
-  - THe DBI driver for your chosen database:
+  - The DBI driver for your chosen database:
     - For SQLite: DBD::SQLite 1.12 or higher
     - For Postgres: DBD::Pg 1.48 or higher
     - For MySQL DBD::mysql 3.0002 or higher
@@ -352,7 +352,7 @@ might change the owner to 'www' if that is the user your web server runs
 under.
 
 For further information on administering SQLite see:
-http://www.sqlite.org/docs.html
+http://www.sqlite.org/docs.html.
 
 For Postgres
 ------------
@@ -382,7 +382,7 @@ default data (assumes your database and user are called rackmonkey):
     $ psql -U rackmonkey rackmonkey < sql/data/sample_data.sql
 
 For further information on administering Postgres see:
-http://www.postgresql.org/docs/.
+http://www.postgresql.org/docs.
     
 For MySQL
 ------------
@@ -415,7 +415,7 @@ You should then flush privileges to ensure all connections see them:
     mysql> FLUSH PRIVILEGES;
 
 For further information on administering MySQL see:
-http://dev.mysql.com/doc/
+http://dev.mysql.com/doc.
     
 
 7. Running RackMonkey

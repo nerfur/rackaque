@@ -46,10 +46,10 @@ shell prompt, you should not type them.
 Once you have obtained a copy of RackMonkey (see README) you should have a
 directory with the following layout:
 
-    conf        Includes RackMonkey and Apache configuration files
+    conf        RackMonkey and Apache configuration files
     doc         Documentation for RackMonkey
-    README      Read this before you start
-    perl        Contains the perl scripts and modules
+    perl        Perl scripts and modules
+    README      Read this first
     sql         SQL to create the RackMonkey database
     tmpl        Web interface templates
     www         Web space files: images, CSS and JavaScript
