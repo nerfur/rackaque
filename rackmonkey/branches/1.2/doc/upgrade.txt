@@ -292,9 +292,9 @@ Excel Spreadsheet Export: rack2xls.pl
 -------------------------------------
 The current Excel spreadsheet export plugin can produce an Excel 97-2004 
 format spreadsheet that is readable by many applications including Microsoft 
-Excel for Windows and Mac, Open Office and iWork. At present the plugin can 
-only export a table of all devices, but further functionality will appear in 
-future releases.
+Excel for Windows and Mac, OpenOffice Calc and iWork NUmbers. At present the 
+plugin can only export a table of all devices, but further functionality will 
+appear in future releases.
 
 To use this plugin you need to install the Spreadsheet::WriteExcel Perl 
 module. If you're not sure how to do this see section 3 of this document.
@@ -302,8 +302,7 @@ module. If you're not sure how to do this see section 3 of this document.
 To enable the plugin, copy rack2xls.pl into the same directory as 
 rackmonkey.pl, make sure it's executable (chmod 755 usually does the trick)
 then uncomment the plugin_xls line in the RackMonkey configuration. You should 
-then find an 'Export XLS' button at the top of the device table views.
-
+now find an 'Export XLS' button at the top of the device table views.
 
 DNS Queries: rackdns.pl
 -----------------------
@@ -316,6 +315,6 @@ sure how to do this see section 3 of this document.
 To enable the plugin, copy rackdns.pl into the same directory as 
 rackmonkey.pl, make sure it's executable (chmod 755 usually does the trick)
 then uncomment the plugin_dns line in the RackMonkey configuration. You should 
-then find a 'Query DNS...' link next to the device name in device detail view. 
-To see the detail view simply click on the name of a device in the rack or 
-device table views.
+now find a 'Query DNS...' link next to the device name in single device  
+view. To see the single device view simply click on the name of a device in 
+the rack or device table views.
