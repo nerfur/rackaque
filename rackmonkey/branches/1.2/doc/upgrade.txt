@@ -12,7 +12,7 @@ http://www.rackmonkey.org/doc/1.2.5
 Contents
 ========
 1. Introduction  
-2. RackMonkey Tarball
+2. RackMonkey Files
 3. Install Dependancies
 4. Schema Update
 5. Configuring RackMonkey
@@ -41,8 +41,8 @@ Please note that the $ and # shown at the start of commands represent the
 shell prompt, you should not type them.
 
 
-2. RackMonkey Tarball
-=====================
+2. RackMonkey Files
+===================
 Once you have obtained a copy of RackMonkey (see README) you should have a
 directory with the following layout:
 
