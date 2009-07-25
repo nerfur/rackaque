@@ -49,7 +49,7 @@ prompt, you should not type it.
 2. System Set Up
 ================
 You need the following in order to install and use RackMonkey. Some of these
-requirements have been revised since both 1.2.4.
+requirements have been revised since 1.2.4.
 
 * Web server. Apache 2 is recommended.
 
