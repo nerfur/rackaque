@@ -402,7 +402,7 @@ paths if you weren't in the rackmonkey directory when you started MySQL):
 Check all queries were OK in the output.
 
 Finally you need to create a user and password to match your configuration 
-file (in section 4, above). For local connections:
+file (in section 5, above). For local connections:
 
     mysql> GRANT ALL ON rackmonkey.* TO 'rackmonkey'@'localhost' IDENTIFIED BY '7jhH#98*';
 
