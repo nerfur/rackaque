@@ -435,7 +435,7 @@ Excel Spreadsheet Export: rack2xls.pl
 -------------------------------------
 The current Excel spreadsheet export plugin can produce an Excel 97-2004 
 format spreadsheet that is readable by many applications including Microsoft 
-Excel for Windows and Mac, OpenOffice Calc and iWork NUmbers. At present the 
+Excel for Windows and Mac, OpenOffice Calc and iWork Numbers. At present the 
 plugin can only export a table of all devices, but further functionality will 
 appear in future releases.
 
