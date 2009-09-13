@@ -16,6 +16,7 @@ Contents
 3. Unsupported Database Driver
 4. Database Related Errors
 5. Missing Graphics and Stylesheet
+6. Misc
 
 
 1. Introduction
@@ -132,3 +133,15 @@ Check the installation instructions for details of the correct format.
 If the RackMonkey script runs, but the graphics and stylesheet are missing,
 you should check the wwwpath setting in rackmonkey.conf. This path is within 
 URL (web) space NOT filesystem space.
+
+
+6. Misc
+=======
+
+Hardware Model is "Dummy Option"
+--------------------------------
+When creating or editing a device the only hardware model that shows up in the 
+dropdown is "Dummy Option". This issue is caused by having JavaScript disabled 
+in your web browser. Enable JavaScript and all should be well. The dropdown
+for the hardware model is populated by JavaScript depending on which
+manufacturer you choose.

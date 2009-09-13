@@ -38,9 +38,9 @@ RHEL/CentOS 4 can NOT use this procedure as some of their packages don't meet
 the minimum requirements. For such systems you should use the generic 
 installation instructions: doc/install.txt
 
-You need a web browser to access the RackMonkey interface. Any reasonably 
-standards-compliant browser should work, but the following browsers are 
-officially supported:
+You need a web browser with JavaScript enabled to access the RackMonkey
+interface. Any reasonably standards-compliant browser should work, but the 
+following browsers are officially supported:
 
  * Firefox 2, 3
  * Internet Explorer 6, 7, 8
