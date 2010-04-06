@@ -64,8 +64,10 @@ Platform specific installation instructions are included for some operating
 systems. Please refer to the following documents as appropriate:
 
  * Generic Install:                 doc/install.txt
- * Debian/Ubuntu Install:           doc/install-debian-ubuntu.txt
- * RHEL/CentOS/Fedora Install:      doc/install-redhat.txt
+ * Debian/Ubuntu:                   doc/install-debian-ubuntu.txt
+ * FreeBSD:				            doc/install-freebsd.txt
+ * Mac OS X:				        doc/install-macosx.txt
+ * RHEL/CentOS/Fedora:              doc/install-redhat.txt
  * Upgrade from prior release:      doc/upgrade.txt
 
 
