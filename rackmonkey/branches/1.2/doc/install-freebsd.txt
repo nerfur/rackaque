@@ -42,7 +42,7 @@ prompt, you should not type it.
 2. Apache
 =========
 You need a working Apache instance in order to install RackMonkey. If you 
-haven't already got one you can install Apache 2.2 as follows (as root):
+haven't already got one, you can install Apache 2.2 with (as root):
 
     # cd /usr/ports/www/apache22
     # make install clean
