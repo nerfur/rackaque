@@ -25,8 +25,8 @@ Thanks go to Eric F. Crist for creating and maintaining the FreeBSD port.
 
 For general advice on installing and managing FreeBSD ports see:
 
-	http://www.freebsd.org/doc/handbook/ports-using.html
-	
+    http://www.freebsd.org/doc/handbook/ports-using.html
+    
 You need a web browser with JavaScript enabled to access the RackMonkey
 interface. Any reasonably standards-compliant browser should work, but the 
 following browsers are officially supported:
@@ -44,22 +44,22 @@ prompt, you should not type it.
 You need a working Apache instance in order to install RackMonkey. If you 
 haven't already got one you can install Apache 2.2 as follows (as root):
 
-	# cd /usr/ports/www/apache22
-	# make install clean
+    # cd /usr/ports/www/apache22
+    # make install clean
 
 Start Apache:
-	# apachectl start
-	
+    # apachectl start
+    
 Start Apache at boot:
-	# echo 'apache22_enable="YES"' >> /etc/rc.conf
+    # echo 'apache22_enable="YES"' >> /etc/rc.conf
 
-		
+        
 3. Install  
 ==========
 To install RackMonkey and its dependencies (as root):
 
-	# cd /usr/ports/net-mgmt/rackmonkey
-	# make install clean
+    # cd /usr/ports/net-mgmt/rackmonkey
+    # make install clean
 
 You will be asked which database engine you wish to use and whether you want
 optional plugins enabled. The default values should be fine for most users.
@@ -71,25 +71,25 @@ Once the install is complete you need to configure Apache. You will need to
 adjust the following commands if you're not using Apache 2.2.
 
 Create a symlink into web space:
-	# ln -s /usr/local/www/rackmonkey /usr/local/www/apache2/data
-	
+    # ln -s /usr/local/www/rackmonkey /usr/local/www/apache2/data
+    
 NB. This symlinks the whole of RackMonkey, including any SQLite database, into 
 web space. Use with caution.
 
 Create /usr/local/etc/apache22/Includes/httpd-rackmonkey.conf with the 
 following content:
 
-	<Location /rackmonkey>
-   		Options ExecCGI FollowSymLinks Includes
-   		AddHandler cgi-script .pl
-   		AddType text/html .shtml
-   		AddHandler server-parsed .shtml
-   		DirectoryIndex rackmonkey.pl index.shtml index.html
-   		SetEnv RACKMONKEY_CONF /usr/local/www/rackmonkey/rackmonkey.conf
-	</Location>
+    <Location /rackmonkey>
+        Options ExecCGI FollowSymLinks Includes
+        AddHandler cgi-script .pl
+        AddType text/html .shtml
+        AddHandler server-parsed .shtml
+        DirectoryIndex rackmonkey.pl index.shtml index.html
+        SetEnv RACKMONKEY_CONF /usr/local/www/rackmonkey/rackmonkey.conf
+    </Location>
 
 Get Apache to reload its configuration:
-	# apachectl graceful
+    # apachectl graceful
 
 
 3. Running RackMonkey
@@ -110,4 +110,4 @@ If you get an error, check out doc/troubleshooting.txt and README for advice.
 This port is not maintained or supported by the RackMonkey developers. If you 
 have any questions or issues with the port you should contact the maintainer. 
 For more information on the RackMonkey port see:
-	http://www.freshports.org/net-mgmt/rackmonkey/
+    http://www.freshports.org/net-mgmt/rackmonkey/
