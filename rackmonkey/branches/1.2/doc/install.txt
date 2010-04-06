@@ -1,7 +1,7 @@
 ##############################################################################
 # RackMonkey - Know Your Racks - http://www.rackmonkey.org                   #
 # Version 1.2.%BUILD%                                                        #
-# (C)2004-2009 Will Green (wgreen at users.sourceforge.net)                  #
+# (C)2004-2010 Will Green (wgreen at users.sourceforge.net)                  #
 # RackMonkey 1.2.5 Install Guide                                             #
 ##############################################################################
 
@@ -29,6 +29,8 @@ Platform specific installation instructions are included for some operating
 systems. Please refer to the following documents if appropriate:
 
 * Debian/Ubuntu:        doc/install-debian-ubuntu.txt
+* FreeBSD:				doc/install-freebsd.txt
+* Mac OS X:				doc/install-macosx.txt
 * RHEL/CentOS/Fedora:   doc/install-redhat.txt
 
 This document covers the installation of a new instance of RackMonkey. For
