@@ -8,5 +8,41 @@
 You can read the latest version of this document in HTML format at:
 http://www.rackmonkey.org/doc/1.2.5
 
-This document is currently being written.
-It covers installation on OS X 10.5 (Leopard) and 10.6 (Snow Leopard).
+NB. This document is still being written, see the generic install.txt for now.
+
+Contents
+========
+1. Introduction  
+2. System Set Up
+3. Installing RackMonkey
+4. Configuring the Web Server
+5. Configuring RackMonkey
+6. Database Set Up
+7. Running RackMonkey
+8. RackMonkey Plugins: Excel and DNS
+
+
+1. Introduction  
+===============
+This document explains how to perform a fresh install of RackMonkey with 
+SQLite on Mac OS X 10.5 (Leopard) or 10.6 (Snow Leopard). Versions of OS X 
+prior to 10.5 have a different Apache set up, so can't use this procedure. If 
+you wish to install RackMonkey on an older version of OS X, or use a If you 
+database other than SQLite, please consult the generic installation 
+instructions: doc/install.txt. For upgrades you should follow doc/upgrade.txt.
+
+You need a web browser with JavaScript enabled to access the RackMonkey
+interface. Any reasonably standards-compliant browser should work, but the 
+following browsers are officially supported:
+
+ * Firefox 2, 3
+ * Internet Explorer 6, 7, 8
+ * Safari 2, 3, 4
+ 
+Please note that the $ shown at the start of commands represent the shell
+prompt, you should not type it.
+
+
+2. System Set Up
+================
+To be written.
